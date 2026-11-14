@@ -1,5 +1,5 @@
 import { openDB, type DBSchema, type IDBPDatabase } from 'idb'
-import type { DailySession, JournalEntry, ReviewState, StudyLog } from '../types'
+import type { DailySession, DrillStat, JournalEntry, ReviewState, StudyLog } from '../types'
 
 interface AppDB extends DBSchema {
   reviews: { key: string; value: ReviewState }
@@ -7,18 +7,22 @@ interface AppDB extends DBSchema {
   logs: { key: string; value: StudyLog }
   mastered: { key: string; value: { termId: string } }
   meta: { key: string; value: DailySession }
+  drill: { key: string; value: DrillStat }
 }
 
 let dbPromise: Promise<IDBPDatabase<AppDB>> | undefined
 
 function db(): Promise<IDBPDatabase<AppDB>> {
-  dbPromise ??= openDB<AppDB>('finance-app', 1, {
-    upgrade(d) {
-      d.createObjectStore('reviews', { keyPath: 'questionId' })
-      d.createObjectStore('journal', { keyPath: 'date' })
-      d.createObjectStore('logs', { keyPath: 'date' })
-      d.createObjectStore('mastered', { keyPath: 'termId' })
-      d.createObjectStore('meta')
+  dbPromise ??= openDB<AppDB>('finance-app', 2, {
+    upgrade(d, oldVersion) {
+      if (oldVersion < 1) {
+        d.createObjectStore('reviews', { keyPath: 'questionId' })
+        d.createObjectStore('journal', { keyPath: 'date' })
+        d.createObjectStore('logs', { keyPath: 'date' })
+        d.createObjectStore('mastered', { keyPath: 'termId' })
+        d.createObjectStore('meta')
+      }
+      if (oldVersion < 2) d.createObjectStore('drill', { keyPath: 'metric' })
     },
   })
   return dbPromise
@@ -56,6 +60,16 @@ export async function setMastered(termId: string, on: boolean): Promise<void> {
   else await d.delete('mastered', termId)
 }
 
+export const getDrillStats = async () => (await db()).getAll('drill')
+
+export async function recordDrill(metric: string, correct: boolean): Promise<void> {
+  const d = await db()
+  const tx = d.transaction('drill', 'readwrite')
+  const prev = (await tx.store.get(metric)) ?? { metric, seen: 0, correct: 0 }
+  await tx.store.put({ metric, seen: prev.seen + 1, correct: prev.correct + (correct ? 1 : 0) })
+  await tx.done
+}
+
 export const getDailySession = async () => (await db()).get('meta', 'dailySession')
 export const putDailySession = async (s: DailySession) => void (await (await db()).put('meta', s, 'dailySession'))
 
@@ -64,6 +78,8 @@ export interface UserData {
   journal: JournalEntry[]
   logs: StudyLog[]
   mastered: string[]
+  /** 計算ドリルの成績（古いバックアップには無い） */
+  drill?: DrillStat[]
 }
 
 export async function exportAll(): Promise<UserData> {
@@ -73,23 +89,26 @@ export async function exportAll(): Promise<UserData> {
     journal: await d.getAll('journal'),
     logs: await d.getAll('logs'),
     mastered: await d.getAllKeys('mastered'),
+    drill: await d.getAll('drill'),
   }
 }
 
 /** 既存のユーザーデータをすべて置き換える */
 export async function replaceAll(data: UserData): Promise<void> {
   const d = await db()
-  const tx = d.transaction(['reviews', 'journal', 'logs', 'mastered', 'meta'], 'readwrite')
+  const tx = d.transaction(['reviews', 'journal', 'logs', 'mastered', 'meta', 'drill'], 'readwrite')
   await Promise.all([
     tx.objectStore('reviews').clear(),
     tx.objectStore('journal').clear(),
     tx.objectStore('logs').clear(),
     tx.objectStore('mastered').clear(),
     tx.objectStore('meta').clear(),
+    tx.objectStore('drill').clear(),
   ])
   for (const r of data.reviews) void tx.objectStore('reviews').put(r)
   for (const e of data.journal) void tx.objectStore('journal').put(e)
   for (const l of data.logs) void tx.objectStore('logs').put(l)
   for (const termId of data.mastered) void tx.objectStore('mastered').put({ termId })
+  for (const s of data.drill ?? []) void tx.objectStore('drill').put(s)
   await tx.done
 }

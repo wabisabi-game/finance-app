@@ -11,7 +11,7 @@ const load = <T>(dir: string): T[] =>
 const terms = load<Term>('terms')
 const questions = load<Question>('questions')
 const termIds = new Set(terms.map((t) => t.id))
-const CATEGORIES = ['rates', 'macro', 'equity', 'fx', 'credit', 'career']
+const CATEGORIES = ['rates', 'macro', 'equity', 'fx', 'credit', 'accounting', 'career']
 
 describe('content', () => {
   it('用語：idが一意で、必須項目が埋まっている', () => {

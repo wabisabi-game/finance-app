@@ -33,7 +33,16 @@ export default function Quiz() {
         />
       )}
 
-      <section className="border-line mt-10 border-t pt-7">
+      <Link to="/quiz/drill" className="card mt-10 flex items-center gap-4">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-xl font-bold text-white" style={{ background: '#16a3b4' }} aria-hidden="true">÷</span>
+        <span className="min-w-0 flex-1">
+          <span className="block font-bold">財務分析ドリル</span>
+          <span className="muted block text-sm">架空の会社の財務三表から、ROICやROEを計算する</span>
+        </span>
+        <span className="text-accent-ink shrink-0 text-xl" aria-hidden="true">›</span>
+      </Link>
+
+      <section className="border-line mt-8 border-t pt-7">
         <h2 className="text-lg font-bold">自主演習</h2>
         <p className="muted mb-4 text-sm">好きな分野を何度でも解けます。正解しても復習の間隔は延びません。</p>
         <div className="grid grid-cols-2 gap-2">

@@ -1,4 +1,4 @@
-export type Category = 'rates' | 'macro' | 'equity' | 'fx' | 'credit' | 'career'
+export type Category = 'rates' | 'macro' | 'equity' | 'fx' | 'credit' | 'accounting' | 'career'
 
 export interface Term {
   id: string
@@ -70,6 +70,13 @@ export interface DailySession {
   questionIds: string[]
   /** questionId → 正解したか */
   answers: Record<string, boolean>
+}
+
+/** 計算ドリルの指標ごとの成績 */
+export interface DrillStat {
+  metric: string
+  seen: number
+  correct: number
 }
 
 export interface Settings {

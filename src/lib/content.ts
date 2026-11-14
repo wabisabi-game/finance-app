@@ -13,6 +13,7 @@ export const CATEGORIES: { id: Category; label: string; color: string }[] = [
   { id: 'equity', label: '株式', color: '#2bb673' },
   { id: 'fx', label: '為替', color: '#f08c3a' },
   { id: 'credit', label: 'クレジット・デリバティブ', color: '#e2557f' },
+  { id: 'accounting', label: '会計・財務分析', color: '#16a3b4' },
   { id: 'career', label: '業界・就活用語', color: '#8a94a6' },
 ]
 

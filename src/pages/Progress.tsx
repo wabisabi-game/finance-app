@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { PageHeader } from '../components/Layout'
 import { CATEGORIES, questionById, termById, terms } from '../lib/content'
 import { addDays, parseDate, todayStr } from '../lib/date'
-import { getJournal, getLogs, getMastered, getReviews } from '../lib/db'
+import { getDrillStats, getJournal, getLogs, getMastered, getReviews } from '../lib/db'
+import { metricById } from '../lib/drill'
 import { accuracyByCategory, computeStreak, pct, weakTerms } from '../lib/stats'
 import { useData } from '../lib/useData'
 import type { JournalEntry } from '../types'
@@ -65,12 +66,13 @@ function Heatmap({ journal, today }: { journal: JournalEntry[]; today: string })
 export default function Progress() {
   const today = todayStr()
   const [data] = useData(async () => {
-    const [reviews, logs, journal, mastered] = await Promise.all([getReviews(), getLogs(), getJournal(), getMastered()])
-    return { reviews, logs, journal, mastered }
+    const [reviews, logs, journal, mastered, drill] = await Promise.all([getReviews(), getLogs(), getJournal(), getMastered(), getDrillStats()])
+    return { reviews, logs, journal, mastered, drill }
   })
   if (!data) return <PageHeader title="進捗" />
 
-  const { reviews, logs, journal, mastered } = data
+  const { reviews, logs, journal, mastered, drill } = data
+  const drillSorted = [...drill].filter((d) => metricById.has(d.metric)).sort((a, b) => a.correct / a.seen - b.correct / b.seen || b.seen - a.seen)
   const todayLog = logs.find((l) => l.date === today)
   const byCategory = accuracyByCategory(reviews, questionById, termById)
   const overall = pct({
@@ -148,6 +150,24 @@ export default function Progress() {
               </li>
             ))}
           </ol>
+        )}
+      </section>
+
+      <section className="card mb-3">
+        <h2 className="label">財務分析ドリル（指標ごとの正答率）</h2>
+        {drillSorted.length === 0 ? (
+          <p className="muted text-sm">
+            まだ解いていません。<Link to="/quiz/drill" className="text-accent-ink font-bold">ドリルを始める ›</Link>
+          </p>
+        ) : (
+          <ul className="divide-line divide-y">
+            {drillSorted.map((d) => (
+              <li key={d.metric} className="flex min-h-11 items-center justify-between gap-3 py-1.5 text-sm">
+                <span>{metricById.get(d.metric)!.label}</span>
+                <span className={`tabular-nums ${pct(d)! < 80 ? 'text-warn font-bold' : ''}`}>{pct(d)}% <span className="muted text-xs font-normal">（{d.correct}/{d.seen}）</span></span>
+              </li>
+            ))}
+          </ul>
         )}
       </section>
 

@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Dictionary from './pages/Dictionary'
+import Drill from './pages/Drill'
 import Home from './pages/Home'
 import JournalEdit from './pages/JournalEdit'
 import JournalList from './pages/JournalList'
@@ -17,6 +18,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="quiz" element={<Quiz />} />
         <Route path="quiz/practice" element={<Practice />} />
+        <Route path="quiz/drill" element={<Drill />} />
         <Route path="dictionary" element={<Dictionary />} />
         <Route path="dictionary/:id" element={<TermDetail />} />
         <Route path="journal" element={<JournalList />} />

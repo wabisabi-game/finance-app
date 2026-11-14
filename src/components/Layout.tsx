@@ -69,7 +69,7 @@ export default function Layout() {
       </main>
 
       {/* スマホ：下部タブ */}
-      <nav className="border-line bg-surface/85 fixed inset-x-0 bottom-0 z-20 grid grid-cols-5 border-t px-2 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden">
+      <nav className="border-line bg-surface fixed inset-x-0 bottom-0 z-20 grid grid-cols-5 border-t px-2 pb-[env(safe-area-inset-bottom)] after:bg-surface after:absolute after:inset-x-0 after:top-full after:h-40 after:content-[''] md:hidden">
         {tabs.map((t) => (
           <NavLink key={t.to} to={t.to} end={t.to === '/'} className="group flex min-h-16 flex-col items-center justify-center gap-0.5">
             {({ isActive }) => (

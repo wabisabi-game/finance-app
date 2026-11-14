@@ -30,7 +30,8 @@ export function parseBackup(text: string): Backup {
     Array.isArray(logs) &&
     logs.every((l) => isObj(l) && typeof l.date === 'string') &&
     Array.isArray(mastered) &&
-    mastered.every((m) => typeof m === 'string')
+    mastered.every((m) => typeof m === 'string') &&
+    (data.drill === undefined || (Array.isArray(data.drill) && data.drill.every((s) => isObj(s) && typeof s.metric === 'string')))
   if (!ok) throw new Error('バックアップの中身が壊れています')
   return data as unknown as Backup
 }
