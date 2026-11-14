@@ -3,7 +3,11 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// GitHub Pages のようにサブパスで配信するときは BASE_PATH=/finance-app/ を指定する
+const base = process.env.BASE_PATH ?? '/'
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     tailwindcss(),
@@ -16,7 +20,8 @@ export default defineConfig({
         description: '金融ニュースと就活のための個人用学習アプリ',
         lang: 'ja',
         display: 'standalone',
-        start_url: '/',
+        start_url: base,
+        scope: base,
         theme_color: '#0f172a',
         background_color: '#0f172a',
         icons: [
@@ -27,7 +32,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
-        navigateFallback: '/index.html',
+        navigateFallback: `${base}index.html`,
       },
     }),
   ],

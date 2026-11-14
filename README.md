@@ -46,10 +46,16 @@ npm run preview  # ビルド結果の確認（PWA・オフライン動作はこ�
 学習記録と日記は端末のブラウザ内（IndexedDB）にのみ保存される。スマホとPCの間では同期されないので、
 設定画面のエクスポート／インポートで移す。
 
-## デプロイ（Vercel）
+## デプロイ
 
-リポジトリをVercelにインポートすればそのまま動く（Framework: Vite、出力先: `dist`）。
-`vercel.json` でSPAのルーティングを設定済み。iPhoneではSafariの共有メニューから「ホーム画面に追加」。
+**GitHub Pages**：リポジトリの Settings → Pages → Source を「GitHub Actions」にすると、
+プッシュのたびに `.github/workflows/deploy.yml` が `https://<owner>.github.io/finance-app/` へデプロイする。
+非公開リポジトリでPagesを使うには有料プラン（GitHub Pro など）が必要。
+
+**Vercel**：リポジトリをインポートすればそのまま動く（Framework: Vite、出力先: `dist`）。
+
+どちらも検索エンジンに載らないよう `noindex` を指定している。ただしURLを知っていれば誰でも開ける。
+iPhoneではSafariの共有メニューから「ホーム画面に追加」。
 
 ## 構成
 
