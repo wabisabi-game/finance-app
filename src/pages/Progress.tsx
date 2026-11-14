@@ -9,14 +9,19 @@ import type { JournalEntry } from '../types'
 
 const WEEKS = 18
 
-function Stat({ value, unit, label }: { value: string | number; unit?: string; label: string }) {
+function Stat({ value, unit, label, goal, ratio }: { value: string | number; unit?: string; label: string; goal: string; ratio: number }) {
+  const reached = ratio >= 1
   return (
-    <div className="card text-center">
-      <p className="text-2xl font-bold tabular-nums">
+    <div className="card p-4">
+      <p className="muted text-xs font-bold">{label}</p>
+      <p className="mt-1 text-3xl leading-tight font-bold tracking-tight tabular-nums">
         {value}
-        {unit && <span className="muted text-sm font-normal">{unit}</span>}
+        {unit && <span className="muted ml-0.5 text-sm font-semibold">{unit}</span>}
       </p>
-      <p className="muted text-xs">{label}</p>
+      <div className="bg-raised mt-3 h-1.5 overflow-hidden rounded-full">
+        <div className={`h-full rounded-full transition-all duration-700 ${reached ? 'bg-good' : 'bg-accent'}`} style={{ width: `${Math.min(1, ratio) * 100}%` }} />
+      </div>
+      <p className={`mt-1.5 text-[11px] leading-none font-semibold ${reached ? 'text-good' : 'text-sub'}`}>{reached ? '目標達成' : goal}</p>
     </div>
   )
 }
@@ -28,30 +33,30 @@ function Heatmap({ journal, today }: { journal: JournalEntry[]; today: string })
   const start = addDays(end, -(WEEKS * 7 - 1))
   const weeks = Array.from({ length: WEEKS }, (_, w) => Array.from({ length: 7 }, (_, d) => addDays(start, w * 7 + d)))
   return (
-    <div className="overflow-x-auto">
-      <div className="flex gap-1" role="img" aria-label={`直近${WEEKS}週間の日記の投稿状況`}>
+    <div>
+      <div className="flex max-w-md gap-1" role="img" aria-label={`直近${WEEKS}週間の日記の投稿状況`}>
         {weeks.map((week) => {
           const first = parseDate(week[0])
           return (
-            <div key={week[0]} className="flex flex-col gap-1">
-              <span className="muted h-4 w-3.5 overflow-visible text-[10px] whitespace-nowrap">{first.getDate() <= 7 ? `${first.getMonth() + 1}月` : ''}</span>
+            <div key={week[0]} className="flex min-w-0 flex-1 flex-col gap-1">
+              <span className="muted h-4 w-0 overflow-visible text-[10px] whitespace-nowrap">{first.getDate() <= 7 ? `${first.getMonth() + 1}月` : ''}</span>
               {week.map((day) => {
                 const e = byDate.get(day)
                 const tone =
                   day > today ? 'bg-transparent'
-                  : !e ? 'bg-slate-200 dark:bg-slate-800'
-                  : e.review.trim() ? 'bg-emerald-600 dark:bg-emerald-400'
-                  : 'bg-emerald-300 dark:bg-emerald-700'
-                return <span key={day} title={day} className={`h-3.5 w-3.5 rounded-sm ${tone} ${day === today ? 'ring-1 ring-slate-400' : ''}`} />
+                  : !e ? 'bg-raised'
+                  : e.review.trim() ? 'bg-accent'
+                  : 'bg-accent/40'
+                return <span key={day} title={day} className={`aspect-square w-full rounded-[4px] ${tone} ${day === today ? 'ring-sub ring-1 ring-offset-1 ring-offset-[var(--surface)]' : ''}`} />
               })}
             </div>
           )
         })}
       </div>
       <p className="muted mt-2 flex items-center gap-1.5 text-xs">
-        <span className="h-3 w-3 rounded-sm bg-slate-200 dark:bg-slate-800" />なし
-        <span className="ml-2 h-3 w-3 rounded-sm bg-emerald-300 dark:bg-emerald-700" />日記あり
-        <span className="ml-2 h-3 w-3 rounded-sm bg-emerald-600 dark:bg-emerald-400" />答え合わせ済み
+        <span className="h-3 w-3 rounded-sm bg-raised" />なし
+        <span className="ml-2 h-3 w-3 rounded-sm bg-accent/40" />日記あり
+        <span className="ml-2 h-3 w-3 rounded-sm bg-accent" />答え合わせ済み
       </p>
     </div>
   )
@@ -73,6 +78,7 @@ export default function Progress() {
     correct: reviews.reduce((s, r) => s + r.correct, 0),
   })
   const weak = weakTerms(reviews, questionById)
+  const streak = computeStreak(logs, today)
   const weekStart = addDays(today, -6)
   const journalThisWeek = journal.filter((e) => e.date >= weekStart && e.date <= today && e.explanation.trim()).length
 
@@ -80,35 +86,45 @@ export default function Progress() {
     <>
       <PageHeader title="進捗" />
 
-      <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-        <Stat value={computeStreak(logs, today)} unit="日" label="連続学習（目標30日）" />
-        <Stat value={overall ?? '—'} unit={overall === null ? '' : '%'} label="正答率（目標80%）" />
-        <Stat value={journalThisWeek} unit="本" label="直近7日の日記（目標5本）" />
-        <Stat value={`${mastered.size}/${terms.length}`} label="覚えた用語" />
+      <div className="mb-3 grid grid-cols-2 gap-3">
+        <Stat value={streak} unit="日" label="連続学習" goal="目標 30日" ratio={streak / 30} />
+        <Stat value={overall ?? '—'} unit={overall === null ? '' : '%'} label="正答率" goal="目標 80%" ratio={(overall ?? 0) / 80} />
+        <Stat value={journalThisWeek} unit="本" label="直近7日の日記" goal="目標 5本" ratio={journalThisWeek / 5} />
+        <Stat value={mastered.size} unit={`/ ${terms.length}`} label="覚えた用語" goal={`全 ${terms.length}語`} ratio={mastered.size / terms.length} />
       </div>
 
       <section className="card mb-3">
         <h2 className="label">今日のタスク</h2>
-        <ul className="space-y-1 text-sm">
-          <li>{todayLog?.quizDone ? '✓' : '・'} デイリークイズ{todayLog ? `（${todayLog.correctCount} / ${todayLog.answeredCount} 問正解）` : ''}</li>
-          <li>{todayLog?.journalDone ? '✓' : '・'} マーケット日記</li>
+        <ul className="space-y-2 text-sm">
+          {[
+            { done: !!todayLog?.quizDone, text: `デイリークイズ${todayLog?.answeredCount ? `（${todayLog.correctCount} / ${todayLog.answeredCount} 問正解）` : ''}` },
+            { done: !!todayLog?.journalDone, text: 'マーケット日記' },
+          ].map((t) => (
+            <li key={t.text} className="flex items-center gap-2.5">
+              <span className={`flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold ${t.done ? 'bg-good text-surface' : 'bg-raised text-transparent'}`}>✓</span>
+              <span className={t.done ? '' : 'text-sub'}>{t.text}</span>
+            </li>
+          ))}
         </ul>
       </section>
 
       <section className="card mb-3">
         <h2 className="label">分野別の正答率</h2>
-        <ul className="space-y-3">
+        <ul className="space-y-4">
           {CATEGORIES.map((c) => {
             const a = byCategory.get(c.id)
             const p = pct(a)
             return (
               <li key={c.id}>
                 <div className="mb-1 flex justify-between text-sm">
-                  <span>{c.label}</span>
+                  <span className="flex items-center gap-2 font-semibold">
+                    <span className="h-2 w-2 rounded-full" style={{ background: c.color }} />
+                    {c.label}
+                  </span>
                   <span className="tabular-nums">{p === null ? <span className="muted">未回答</span> : <>{p}% <span className="muted text-xs">（{a!.correct}/{a!.seen}）</span></>}</span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
-                  <div className={`h-full rounded-full ${p !== null && p < 80 ? 'bg-amber-500' : 'bg-emerald-500'}`} style={{ width: `${p ?? 0}%` }} />
+                <div className="h-2 overflow-hidden rounded-full bg-raised">
+                  <div className={`h-full rounded-full transition-all duration-700 ${p !== null && p < 80 ? 'bg-warn' : 'bg-good'}`} style={{ width: `${p ?? 0}%` }} />
                 </div>
               </li>
             )
@@ -121,7 +137,7 @@ export default function Progress() {
         {weak.length === 0 ? (
           <p className="muted text-sm">まだ間違えた問題がありません。</p>
         ) : (
-          <ol className="divide-y divide-slate-200 dark:divide-slate-800">
+          <ol className="divide-y divide-line">
             {weak.map((w, i) => (
               <li key={w.termId}>
                 <Link to={`/dictionary/${w.termId}`} className="flex min-h-11 items-center gap-3 py-1.5 text-sm">

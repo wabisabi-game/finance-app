@@ -7,14 +7,16 @@ const questionFiles = import.meta.glob<Question[]>('../../content/questions/*.js
   import: 'default',
 })
 
-export const CATEGORIES: { id: Category; label: string }[] = [
-  { id: 'rates', label: '金利・債券' },
-  { id: 'macro', label: '金融政策・マクロ' },
-  { id: 'equity', label: '株式' },
-  { id: 'fx', label: '為替' },
-  { id: 'credit', label: 'クレジット・デリバティブ' },
-  { id: 'career', label: '業界・就活用語' },
+export const CATEGORIES: { id: Category; label: string; color: string }[] = [
+  { id: 'rates', label: '金利・債券', color: '#4f8ef7' },
+  { id: 'macro', label: '金融政策・マクロ', color: '#9b6cf2' },
+  { id: 'equity', label: '株式', color: '#2bb673' },
+  { id: 'fx', label: '為替', color: '#f08c3a' },
+  { id: 'credit', label: 'クレジット・デリバティブ', color: '#e2557f' },
+  { id: 'career', label: '業界・就活用語', color: '#8a94a6' },
 ]
+
+export const categoryColor = (id: Category): string => CATEGORIES.find((c) => c.id === id)?.color ?? '#8a94a6'
 
 export const categoryLabel = (id: Category): string => CATEGORIES.find((c) => c.id === id)?.label ?? id
 

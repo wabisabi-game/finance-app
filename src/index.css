@@ -2,42 +2,161 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --font-sans: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic UI', Meiryo, system-ui,
-    sans-serif;
+/*
+ * デザイントークン。色はここだけで決め、画面側は役割名（bg-surface, text-sub など）で使う。
+ * ブランド色（accent＝藍）と、意味を持つ色（good/bad/warn）を分けている。
+ * 緑と赤は「正解・不正解」「上昇・下落」のためだけに使う。
+ */
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --raised: #eceae4;
+  --ink: #1a1c22;
+  --sub: #646874;
+  --line: #e3e1da;
+  --accent: #3d4ecb;
+  --accent-ink: #3442b5;
+  --accent-soft: #e8eafb;
+  --good: #0b7a53;
+  --good-soft: #dcf2e8;
+  --bad: #c22f47;
+  --bad-soft: #fbe5e8;
+  --warn: #9a5b00;
+  --warn-soft: #faedd2;
+  --card-border: transparent;
+  --card-shadow: 0 1px 2px rgb(26 28 34 / 0.04), 0 6px 20px rgb(26 28 34 / 0.05);
+  color-scheme: light;
+}
+
+/* ダークは色を反転させるのではなく、面を一段ずつ明るくして奥行きを出す */
+.dark {
+  --bg: #0d0f13;
+  --surface: #171a21;
+  --raised: #232731;
+  --ink: #eceef2;
+  --sub: #9ba1ae;
+  --line: #2a2e39;
+  --accent: #5564e0;
+  --accent-ink: #a5aeff;
+  --accent-soft: #22274a;
+  --good: #45d093;
+  --good-soft: #12301f;
+  --bad: #ff7d8c;
+  --bad-soft: #3a1a20;
+  --warn: #f0b24a;
+  --warn-soft: #33270f;
+  --card-border: var(--line);
+  --card-shadow: none;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+    'Yu Gothic UI', Meiryo, system-ui, sans-serif;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-sub: var(--sub);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+
+  /* 日本語は欧文より行間を広く取る */
+  --text-xs--line-height: 1.6;
+  --text-sm--line-height: 1.65;
+  --text-base--line-height: 1.75;
+  --text-lg--line-height: 1.7;
+
+  --animate-enter: enter 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-pop: pop 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+  @apply bg-bg text-ink antialiased;
+  line-height: 1.75;
+}
+
+/* 見出しは約物まわりを詰めて締める */
+h1,
+h2,
+h3 {
+  font-feature-settings: 'palt';
+  letter-spacing: 0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer components {
   .card {
-    @apply rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900;
+    @apply bg-surface rounded-3xl p-5;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+  }
+  a.card {
+    @apply transition-transform duration-150 active:scale-[0.985];
   }
   .btn {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 text-sm font-medium text-slate-800 transition-colors hover:bg-slate-100 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800;
+    @apply bg-surface text-ink hover:bg-raised inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-4 text-sm font-semibold transition duration-150 active:scale-[0.98] disabled:opacity-40;
+    border: 1px solid var(--line);
   }
   .btn-primary {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 disabled:opacity-40;
+    @apply bg-accent inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-4 text-sm font-bold text-white transition duration-150 hover:brightness-110 active:scale-[0.98] disabled:opacity-40;
+    box-shadow: 0 6px 16px -6px var(--accent);
   }
   .input {
-    @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-base outline-none placeholder:text-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 dark:border-slate-700 dark:bg-slate-900;
+    @apply bg-raised/60 text-ink placeholder:text-sub/70 focus:border-accent focus:bg-surface w-full rounded-2xl border border-transparent px-3.5 py-3 text-base transition outline-none;
   }
   .chip {
-    @apply inline-flex min-h-9 shrink-0 items-center rounded-full border border-slate-300 px-3 text-sm whitespace-nowrap text-slate-700 dark:border-slate-700 dark:text-slate-300;
+    @apply bg-surface text-sub inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium whitespace-nowrap transition;
+    border: 1px solid var(--line);
   }
   .chip-on {
-    @apply border-emerald-600 bg-emerald-600 text-white dark:border-emerald-500 dark:bg-emerald-600 dark:text-white;
+    @apply bg-ink text-bg;
+    border-color: var(--ink);
   }
   .label {
-    @apply mb-1 block text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400;
+    @apply text-sub mb-2 block text-xs font-bold tracking-wider;
   }
   .muted {
-    @apply text-slate-500 dark:text-slate-400;
+    @apply text-sub;
   }
 }

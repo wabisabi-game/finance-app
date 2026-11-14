@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PageHeader } from '../components/Layout'
-import { CATEGORIES, categoryLabel, searchTerms, terms } from '../lib/content'
+import { CATEGORIES, categoryColor, categoryLabel, searchTerms, terms } from '../lib/content'
 import { getMastered } from '../lib/db'
 import { useData } from '../lib/useData'
 import type { Category } from '../types'
@@ -26,7 +26,10 @@ export default function Dictionary() {
       <div className="-mx-4 mb-2 flex gap-2 overflow-x-auto px-4 pb-1">
         <button className={`chip ${category === 'all' ? 'chip-on' : ''}`} onClick={() => setCategory('all')}>すべて</button>
         {CATEGORIES.map((c) => (
-          <button key={c.id} className={`chip ${category === c.id ? 'chip-on' : ''}`} onClick={() => setCategory(c.id)}>{c.label}</button>
+          <button key={c.id} className={`chip ${category === c.id ? 'chip-on' : ''}`} onClick={() => setCategory(c.id)}>
+            <span className="h-2 w-2 rounded-full" style={{ background: c.color }} />
+            {c.label}
+          </button>
         ))}
       </div>
       <div className="mb-4 flex gap-2">
@@ -36,18 +39,22 @@ export default function Dictionary() {
       </div>
 
       <p className="muted mb-2 text-sm">{list.length}語</p>
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col gap-3">
         {list.map((t) => (
           <li key={t.id}>
-            <Link to={`/dictionary/${t.id}`} className="card block hover:border-emerald-500">
+            <Link to={`/dictionary/${t.id}`} className="card block">
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <p className="font-bold">{t.nameJa}</p>
-                  <p className="muted truncate text-xs">{t.nameEn}・{categoryLabel(t.category)}</p>
+                  <p className="muted mb-1 flex items-center gap-1.5 text-xs font-semibold">
+                    <span className="h-2 w-2 rounded-full" style={{ background: categoryColor(t.category) }} />
+                    {categoryLabel(t.category)}
+                  </p>
+                  <p className="text-lg leading-snug font-bold">{t.nameJa}</p>
+                  <p className="muted truncate text-xs">{t.nameEn}</p>
                 </div>
-                {mastered?.has(t.id) && <span className="shrink-0 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">覚えた</span>}
+                {mastered?.has(t.id) && <span className="bg-good-soft text-good shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold">✓ 覚えた</span>}
               </div>
-              <p className="mt-1.5 text-sm">{t.summary}</p>
+              <p className="mt-2 text-sm">{t.summary}</p>
             </Link>
           </li>
         ))}

@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { PageHeader } from '../components/Layout'
-import { categoryLabel, questionsForTerm, termById } from '../lib/content'
+import { categoryColor, categoryLabel, questionsForTerm, termById } from '../lib/content'
 import { getMastered, setMastered } from '../lib/db'
 import { useData } from '../lib/useData'
 
@@ -33,13 +33,19 @@ export default function TermDetail() {
   return (
     <>
       <PageHeader title={term.nameJa} back="/dictionary" />
-      <p className="muted -mt-3 mb-4 text-sm">{term.nameEn}・{categoryLabel(term.category)}</p>
+      <p className="muted -mt-3 mb-5 flex flex-wrap items-center gap-x-2 text-sm">
+        <span className="flex items-center gap-1.5 font-semibold">
+          <span className="h-2 w-2 rounded-full" style={{ background: categoryColor(term.category) }} />
+          {categoryLabel(term.category)}
+        </span>
+        <span>{term.nameEn}</span>
+      </p>
 
-      <p className="mb-4 text-lg leading-relaxed font-medium">{term.summary}</p>
+      <p className="border-accent mb-5 border-l-4 pl-4 text-lg leading-relaxed font-bold">{term.summary}</p>
 
-      <div className="mb-4 grid grid-cols-2 gap-2">
+      <div className="mb-5 grid grid-cols-2 gap-2.5">
         <button
-          className={isMastered ? 'btn-primary' : 'btn'}
+          className={isMastered ? 'btn border-good! bg-good-soft! text-good!' : 'btn'}
           aria-pressed={isMastered}
           onClick={async () => {
             await setMastered(term.id, !isMastered)
@@ -60,7 +66,7 @@ export default function TermDetail() {
           <div className="flex flex-wrap gap-2">
             {term.related.map((r) => {
               const t = termById.get(r)
-              return t ? <Link key={r} to={`/dictionary/${r}`} className="chip hover:border-emerald-500">{t.nameJa}</Link> : null
+              return t ? <Link key={r} to={`/dictionary/${r}`} className="chip text-ink!">{t.nameJa}</Link> : null
             })}
           </div>
         </Section>
@@ -69,7 +75,7 @@ export default function TermDetail() {
       <Section title="出典メモ">
         <p className="text-sm">{term.source}</p>
         {!term.verified && (
-          <p className="mt-2 rounded-lg bg-amber-100 px-3 py-2 text-xs text-amber-900 dark:bg-amber-950 dark:text-amber-200">
+          <p className="bg-warn-soft text-warn mt-3 rounded-xl px-3 py-2 text-xs font-medium">
             裏取り前：この用語はAIが下書きしたもので、出典での確認がまだ済んでいません。
           </p>
         )}

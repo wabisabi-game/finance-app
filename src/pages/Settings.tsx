@@ -70,7 +70,7 @@ export default function Settings() {
         <span className="label">テーマ</span>
         <div className="grid grid-cols-3 gap-2">
           {THEMES.map((t) => (
-            <button key={t.id} aria-pressed={settings.theme === t.id} className={`min-h-11 rounded-xl border text-sm font-medium ${settings.theme === t.id ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-slate-300 dark:border-slate-700'}`} onClick={() => update({ theme: t.id })}>
+            <button key={t.id} aria-pressed={settings.theme === t.id} className={`min-h-12 rounded-2xl text-sm font-bold transition active:scale-95 ${settings.theme === t.id ? 'bg-accent text-white' : 'bg-raised/60 text-sub'}`} onClick={() => update({ theme: t.id })}>
               {t.label}
             </button>
           ))}
@@ -85,7 +85,7 @@ export default function Settings() {
           <button className="btn" onClick={() => fileRef.current?.click()}>インポート</button>
         </div>
         <input ref={fileRef} type="file" accept="application/json,.json" className="hidden" onChange={(e) => e.target.files?.[0] && void onImport(e.target.files[0])} />
-        {message && <p role="status" className={`mt-3 text-sm ${message.ok ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>{message.text}</p>}
+        {message && <p role="status" className={`mt-3 text-sm ${message.ok ? 'text-good' : 'text-bad'}`}>{message.text}</p>}
       </section>
 
       <p className="muted text-center text-xs">収録：用語 {terms.length}語・問題 {questions.length}問</p>

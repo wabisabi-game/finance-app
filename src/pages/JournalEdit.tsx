@@ -141,7 +141,7 @@ export default function JournalEdit() {
                     id={`${field}-${f.key}`}
                     aria-label={`${f.label} ${field === 'close' ? '終値' : '前日比'}`}
                     aria-invalid={isBadNumber(value)}
-                    className={`input px-2 text-right tabular-nums ${isBadNumber(value) ? 'border-rose-500' : ''}`}
+                    className={`input px-2.5 text-right tabular-nums ${isBadNumber(value) ? 'border-bad!' : ''}`}
                     inputMode="text"
                     placeholder={field === 'close' ? '—' : '±'}
                     value={value}
@@ -153,7 +153,7 @@ export default function JournalEdit() {
           ))}
         </div>
         {PRICE_KEYS.some((k) => isBadNumber(form.prices[k].close) || isBadNumber(form.prices[k].change)) && (
-          <p className="mt-2 text-xs text-rose-600 dark:text-rose-400">赤枠の欄は数値として読めないため保存されません（例：38500.25、-120、+0.05）。</p>
+          <p className="mt-2 text-xs text-bad">赤枠の欄は数値として読めないため保存されません（例：38500.25、-120、+0.05）。</p>
         )}
       </section>
 
@@ -173,7 +173,7 @@ export default function JournalEdit() {
           <span className="label" id="confidence-label">確信度</span>
           <div className="grid grid-cols-5 gap-2" role="radiogroup" aria-labelledby="confidence-label">
             {[1, 2, 3, 4, 5].map((n) => (
-              <button key={n} role="radio" aria-checked={form.confidence === n} className={`min-h-11 rounded-xl border text-sm font-semibold ${form.confidence === n ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-slate-300 dark:border-slate-700'}`} onClick={() => update({ confidence: n })}>
+              <button key={n} role="radio" aria-checked={form.confidence === n} className={`min-h-12 rounded-2xl text-base font-bold transition active:scale-95 ${form.confidence === n ? 'bg-accent text-white' : 'bg-raised/60 text-sub'}`} onClick={() => update({ confidence: n })}>
                 {n}
               </button>
             ))}
@@ -182,9 +182,12 @@ export default function JournalEdit() {
         </div>
       </section>
 
-      <button className="btn mb-3 w-full" onClick={() => setTimerOpen(true)}>⏱ 2分説明モードで練習する</button>
+      <button className="bg-accent-soft text-accent-ink mb-3 flex min-h-14 w-full items-center justify-center gap-2 rounded-3xl text-sm font-bold transition active:scale-[0.98]" onClick={() => setTimerOpen(true)}>
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2.5 2M9 2h6" /></svg>
+        2分説明モードで練習する
+      </button>
 
-      <section className={`card mb-3 ${isPast && !form.review.trim() ? 'border-amber-500/70' : ''}`}>
+      <section className={`card mb-3 ${isPast && !form.review.trim() ? 'border-warn!' : ''}`}>
         <label htmlFor="review" className="label">答え合わせ（翌日以降に追記）</label>
         <textarea id="review" className="input min-h-28 leading-relaxed" placeholder="報道や解説と比べてどうだったか。合っていた点、見落としていた要因、次に活かすこと。" value={form.review} onChange={(e) => update({ review: e.target.value })} />
       </section>
@@ -195,7 +198,7 @@ export default function JournalEdit() {
       </section>
 
       <button
-        className="btn w-full text-rose-600 dark:text-rose-400"
+        className="text-bad flex min-h-12 w-full items-center justify-center text-sm font-semibold"
         onClick={async () => {
           if (!confirm(`${formatDateJa(date)} の日記を削除しますか？`)) return
           dirty.current = false

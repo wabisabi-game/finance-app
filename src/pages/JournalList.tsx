@@ -40,14 +40,14 @@ export default function JournalList() {
         </div>
       )}
 
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col gap-3">
         {list.map((e) => (
           <li key={e.date}>
-            <Link to={`/journal/${e.date}`} className="card block hover:border-emerald-500">
+            <Link to={`/journal/${e.date}`} className="card block">
               <div className="mb-1.5 flex items-center justify-between gap-2">
                 <p className="font-bold">{formatDateJa(e.date)} <span className="muted text-xs font-normal">{e.date.slice(0, 4)}</span></p>
                 <div className="flex shrink-0 items-center gap-2 text-xs">
-                  {e.date < today && !e.review.trim() && <span className="rounded-full bg-amber-100 px-2 py-0.5 font-medium text-amber-800 dark:bg-amber-950 dark:text-amber-200">答え合わせ前</span>}
+                  {e.date < today && !e.review.trim() && <span className="bg-warn-soft text-warn rounded-full px-2.5 py-0.5 font-bold">答え合わせ前</span>}
                   <span className="muted">確信度 {e.confidence}</span>
                 </div>
               </div>

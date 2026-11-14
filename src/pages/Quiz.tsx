@@ -33,15 +33,18 @@ export default function Quiz() {
         />
       )}
 
-      <section className="mt-8">
-        <h2 className="mb-2 font-bold">自主演習</h2>
-        <p className="muted mb-3 text-sm">好きな分野を何度でも解けます。正解しても復習の間隔は延びません。</p>
+      <section className="border-line mt-10 border-t pt-7">
+        <h2 className="text-lg font-bold">自主演習</h2>
+        <p className="muted mb-4 text-sm">好きな分野を何度でも解けます。正解しても復習の間隔は延びません。</p>
         <div className="grid grid-cols-2 gap-2">
           <Link to="/quiz/practice" className="btn col-span-2">ランダム10問</Link>
           {CATEGORIES.map((c) => (
-            <Link key={c.id} to={`/quiz/practice?category=${c.id}`} className="btn h-auto flex-col py-2 text-center">
-              {c.label}
-              <span className="muted text-xs font-normal">{questionsForCategory(c.id).length}問</span>
+            <Link key={c.id} to={`/quiz/practice?category=${c.id}`} className="btn h-auto flex-col items-start gap-0.5 py-3 text-left">
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: c.color }} />
+                {c.label}
+              </span>
+              <span className="muted pl-3.5 text-xs font-medium">{questionsForCategory(c.id).length}問</span>
             </Link>
           ))}
         </div>
