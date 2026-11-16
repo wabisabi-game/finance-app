@@ -7,9 +7,22 @@
     "summary": "満期ごとの国債利回りを結んだ曲線。金利の期間構造を表す。",
     "detail": "横軸に残存期間、縦軸に利回りを取り、同じ発行体（主に国債）の利回りを結んだ曲線。通常は期間が長いほど利回りが高い右上がり（順イールド）になる。短期ゾーンは政策金利の見通し、長期ゾーンは成長・インフレ期待とタームプレミアムを反映する。",
     "marketImpact": "カーブの形の変化（スティープ化・フラット化）は景気や金融政策の見通しの変化を映す。銀行は短期調達・長期運用なので、スティープ化は銀行株に追い風とされる。",
-    "related": ["inverted-yield-curve", "steepening-flattening", "term-premium", "ust10y"],
+    "related": [
+      "inverted-yield-curve",
+      "steepening-flattening",
+      "term-premium",
+      "ust10y"
+    ],
     "example": "「米イールドカーブはフラット化が進み、2年債と10年債の利回り差が縮小しました」",
-    "source": "要確認：財務省「国債金利情報」、米財務省 Daily Treasury Par Yield Curve Rates"
+    "source": "要確認：財務省「国債金利情報」、米財務省 Daily Treasury Par Yield Curve Rates",
+    "cases": [],
+    "sources": [
+      {
+        "label": "米財務省 Daily Treasury Par Yield Curve Rates",
+        "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "inverted-yield-curve",
@@ -19,9 +32,35 @@
     "summary": "短期金利が長期金利を上回る状態。景気後退の前兆とされる。",
     "detail": "通常とは逆に、短期債の利回りが長期債の利回りを上回る状態。中央銀行の利上げで短期金利が押し上げられる一方、市場が将来の景気減速と利下げを織り込み長期金利が上がりにくいときに起きる。米国では2年債と10年債、または3か月物と10年債の利回り差がよく見られる。",
     "marketImpact": "米国では過去、逆イールドの発生後しばらくして景気後退に入った例が多く、景気後退シグナルとして注目される。ただし発生から後退までの時間差は長くばらつきがあり、必ず当たるわけではない。",
-    "related": ["yield-curve", "steepening-flattening", "ff-rate"],
+    "related": [
+      "yield-curve",
+      "steepening-flattening",
+      "ff-rate"
+    ],
     "example": "「米2年債利回りが10年債利回りを上回る逆イールドが続いています」",
-    "source": "要確認：NY連銀 The Yield Curve as a Leading Indicator"
+    "source": "要確認：NY連銀 The Yield Curve as a Leading Indicator",
+    "cases": [
+      {
+        "date": "2022年7月〜2024年9月",
+        "title": "米国で過去最長の逆イールド",
+        "detail": "米2年債と10年債の利回りが2022年7月初めに逆転。2024年3月には1978年の624日を抜いて過去最長となり、差は2023年7月に一時約−1.08%まで広がった。2024年8〜9月にかけて解消したが、解消した時点までに景気後退は起きておらず、「当たらなかったシグナル」として議論を呼んだ。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Kitco（Reuters配信）2024年3月21日",
+        "url": "https://www.kitco.com/news/off-the-wire/2024-03-21/us-treasury-key-yield-curve-inversion-becomes-longest-record"
+      },
+      {
+        "label": "Axios 2024年8月6日",
+        "url": "https://www.axios.com/2024/08/06/inversion-interrupted-markets"
+      },
+      {
+        "label": "NY連銀 The Yield Curve as a Leading Indicator",
+        "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "steepening-flattening",
@@ -31,9 +70,31 @@
     "summary": "長短金利差が拡大するのがスティープ化、縮小するのがフラット化。",
     "detail": "イールドカーブの傾きの変化を表す言葉。金利が全体に低下しながら短期主導で傾きが急になるのをブル・スティープ、金利が上昇しながら長期主導で傾きが急になるのをベア・スティープと呼ぶ。同様にブル・フラット（長期金利低下主導）、ベア・フラット（短期金利上昇主導）がある。「ブル」は債券価格の上昇＝金利低下を指す。",
     "marketImpact": "利上げ局面では短期金利が上がりベア・フラットになりやすい。利下げ期待が強まると短期金利が下がりブル・スティープになりやすい。財政悪化懸念などで長期債が売られるとベア・スティープになる。",
-    "related": ["yield-curve", "inverted-yield-curve", "term-premium"],
+    "related": [
+      "yield-curve",
+      "inverted-yield-curve",
+      "term-premium"
+    ],
     "example": "「利下げ観測から2年債が買われ、カーブはブル・スティープ化しました」",
-    "source": "要確認：証券会社の債券用語集（野村證券 証券用語解説集 など）"
+    "source": "要確認：証券会社の債券用語集（野村證券 証券用語解説集 など）",
+    "cases": [
+      {
+        "date": "2023年7月〜10月",
+        "title": "長期金利主導のベア・スティープ化",
+        "detail": "米10年債利回りは2023年10月19日に約5%と2007年以来の水準に達した。政策金利の見通しよりも、財政悪化への懸念などからタームプレミアムが上昇したことが主因とされ、長期金利が大きく上がったことで逆イールドの幅は縮小した。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNBC 2023年10月19日",
+        "url": "https://www.cnbc.com/2023/10/19/us-treasurys-ahead-of-fed-chair-powell-speech.html"
+      },
+      {
+        "label": "FRB FEDS Notes「The Treasury Tantrum of 2023」",
+        "url": "https://www.federalreserve.gov/econres/notes/feds-notes/the-treasury-tantrum-of-2023-20240903.html"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "duration",
@@ -43,9 +104,35 @@
     "summary": "金利変化に対する債券価格の感応度。大きいほど金利リスクが大きい。",
     "detail": "もともとは債券のキャッシュフローを受け取るまでの加重平均期間（マコーレー・デュレーション）。実務では、金利が1%変化したときに価格が何%変化するかを示す修正デュレーションがよく使われる。満期が長いほど、またクーポンが低いほどデュレーションは大きくなる。",
     "marketImpact": "修正デュレーションが8の債券は、金利が1%上がると価格がおよそ8%下がる。金利上昇を見込む投資家はデュレーションを短くし、金利低下を見込む投資家は長くする。株式でもグロース株を「デュレーションが長い資産」と表現することがある。",
-    "related": ["bond-price-yield", "ust10y", "growth-value"],
+    "related": [
+      "bond-price-yield",
+      "ust10y",
+      "growth-value"
+    ],
     "example": "「金利上昇を警戒し、投資家はポートフォリオのデュレーションを短期化しています」",
-    "source": "要確認：日本証券業協会 債券の基礎知識、CFA Institute Fixed Income"
+    "source": "要確認：日本証券業協会 債券の基礎知識、CFA Institute Fixed Income",
+    "cases": [
+      {
+        "date": "2023年3月",
+        "title": "シリコンバレー銀行（SVB）の破綻",
+        "detail": "SVBは低金利期に長期の債券を大量に買っていた。満期保有目的の債券（平均デュレーション約6.2年）は金利上昇で約150億ドルの含み損を抱え、自己資本に匹敵する規模に。預金流出に対応するため債券を売って18億ドルの損失を確定させると、3月9日に1日で約420億ドルの預金が引き出され、翌10日に当局が閉鎖した。信用リスクではなく、純粋に金利リスク（デュレーション）による破綻だった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ICAEW「Chart of the week: Silicon Valley Bank」",
+        "url": "https://www.icaew.com/insights/viewpoints-on-the-news/2023/mar-2023/Chart-of-the-week-Silicon-Valley-Bank"
+      },
+      {
+        "label": "Fortune 2023年3月10日",
+        "url": "https://fortune.com/2023/03/10/svb-collapse-fdic-takeover-martin-gruenberg-620-billion-hole-banks-balance-sheet/"
+      },
+      {
+        "label": "Informa Connect「SVB's failure: a case study in the mismanagement of duration risk」",
+        "url": "https://informaconnect.com/svbs-failure-a-case-study-in-the-mismanagement-of-duration-risk"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "term-premium",
@@ -55,9 +142,36 @@
     "summary": "長期債を持つリスクの対価として投資家が求める上乗せ利回り。",
     "detail": "長期金利は「将来の短期金利の予想の平均」と「タームプレミアム」に分解して考えられる。タームプレミアムは、長期債を保有することによる金利変動リスクなどへの対価。直接観測できないためモデルで推計され、NY連銀のACMモデルなどが有名。",
     "marketImpact": "国債の増発や財政悪化懸念、中央銀行の保有国債の縮小（QT）、インフレの不確実性の高まりはタームプレミアムを押し上げ、政策金利の見通しが変わらなくても長期金利を上昇させる。",
-    "related": ["yield-curve", "ust10y", "qe-qt", "steepening-flattening"],
+    "related": [
+      "yield-curve",
+      "ust10y",
+      "qe-qt",
+      "steepening-flattening"
+    ],
     "example": "「米国債の増発懸念からタームプレミアムが拡大し、長期金利が上昇しました」",
-    "source": "要確認：NY連銀 Treasury Term Premia（ACMモデル）"
+    "source": "要確認：NY連銀 Treasury Term Premia（ACMモデル）",
+    "cases": [
+      {
+        "date": "2023年10月",
+        "title": "タームプレミアムの上昇で米長期金利が5%に",
+        "detail": "米10年債利回りが2007年以来の5%に達した局面で、NY連銀の推計するタームプレミアムは2021年5月以来の高水準に。FRBの分析では、10月19日時点の10年タームプレミアムはモデルによって約0.4〜1.4%と推計された。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNBC 2023年10月19日",
+        "url": "https://www.cnbc.com/2023/10/19/us-treasurys-ahead-of-fed-chair-powell-speech.html"
+      },
+      {
+        "label": "FRB FEDS Notes「The Treasury Tantrum of 2023」",
+        "url": "https://www.federalreserve.gov/econres/notes/feds-notes/the-treasury-tantrum-of-2023-20240903.html"
+      },
+      {
+        "label": "NY連銀 Treasury Term Premia",
+        "url": "https://www.newyorkfed.org/research/data_indicators/term-premia-tabs"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "bond-price-yield",
@@ -67,9 +181,27 @@
     "summary": "債券は価格が上がると利回りが下がり、価格が下がると利回りが上がる。",
     "detail": "債券は将来受け取るクーポンと元本が決まっているため、安く買えば利回りは高く、高く買えば利回りは低くなる。このため価格と利回りは逆に動く。ニュースで「債券が買われた」は利回り低下、「債券が売られた」は利回り上昇を意味する。",
     "marketImpact": "リスクオフで安全資産の国債が買われると利回りは低下する。インフレ懸念や利上げ観測で国債が売られると利回りは上昇する。金利上昇は既発債の保有者にとって評価損になる。",
-    "related": ["duration", "ust10y", "risk-off"],
+    "related": [
+      "duration",
+      "ust10y",
+      "risk-off"
+    ],
     "example": "「米国債は売られ、10年債利回りは上昇しました」",
-    "source": "要確認：財務省「国債とは」、日本証券業協会 債券の基礎知識"
+    "source": "要確認：財務省「国債とは」、日本証券業協会 債券の基礎知識",
+    "cases": [
+      {
+        "date": "2022年",
+        "title": "米国債券市場の歴史的な下落",
+        "detail": "FRBの急速な利上げで利回りが急上昇し、米国の代表的な債券指数（ブルームバーグ米国総合指数）は2022年に−13.01%と、1976年の算出開始以来で最悪の年になった。それまでの最悪は1994年の−2.92%。「債券は安全」という常識が崩れた年として語られる。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Diamond Hill「Q4: A Brief Respite for Bond Markets」",
+        "url": "https://diamond-hill.com/insights/a-503/articles/q4-a-brief-respite-for-bond-markets-after-a-turbulent-year"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "ust10y",
@@ -79,9 +211,41 @@
     "summary": "世界の金利の基準となる米国の長期金利。株・為替への影響が大きい。",
     "detail": "米国財務省が発行する10年物国債の流通利回り。「米長期金利」と言えば通常これを指す。米国の成長率・インフレの見通し、FRBの金融政策の見通し、タームプレミアムを反映する。住宅ローン金利や社債利回りの基準にもなる。",
     "marketImpact": "上昇すると、将来の利益を割り引く率が上がるため高PERのグロース株に逆風になりやすい。また日米金利差の拡大を通じてドル高・円安要因になる。低下すればその逆。",
-    "related": ["yield-curve", "interest-rate-differential", "growth-value", "real-yield"],
+    "related": [
+      "yield-curve",
+      "interest-rate-differential",
+      "growth-value",
+      "real-yield"
+    ],
     "example": "「米10年債利回りは4.5%台に上昇し、ハイテク株の重荷となりました」",
-    "source": "要確認：米財務省 Daily Treasury Rates、FRED（DGS10）"
+    "source": "要確認：米財務省 Daily Treasury Rates、FRED（DGS10）",
+    "cases": [
+      {
+        "date": "2020年3月9日",
+        "title": "コロナ・ショックで過去最低の0.318%",
+        "detail": "新型コロナへの不安と産油国の価格競争が重なり、安全資産の米国債に資金が殺到。10年債利回りは一時0.318%と過去最低を付けた。"
+      },
+      {
+        "date": "2023年10月19日",
+        "title": "16年ぶりに5%台へ",
+        "detail": "インフレと財政懸念から長期金利が上昇し、2007年7月以来となる5%に到達した。高PERのハイテク株や住宅市場の重荷となった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNBC 2020年3月9日",
+        "url": "https://www.cnbc.com/2020/03/09/10-year-treasury-yield-plunges.html"
+      },
+      {
+        "label": "CNBC 2023年10月19日",
+        "url": "https://www.cnbc.com/2023/10/19/us-treasurys-ahead-of-fed-chair-powell-speech.html"
+      },
+      {
+        "label": "FRED DGS10（米10年債利回り）",
+        "url": "https://fred.stlouisfed.org/series/DGS10"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "real-yield",
@@ -91,9 +255,31 @@
     "summary": "名目金利から期待インフレ率を引いた金利。金融環境の引き締まり度を示す。",
     "detail": "実質金利 ≒ 名目金利 − 期待インフレ率（フィッシャー方程式）。市場では米国の物価連動国債（TIPS）の利回りが実質金利の指標として使われる。企業や家計の実質的な借入コストを表すため、景気への影響を考えるうえで名目金利より重要とされる。",
     "marketImpact": "実質金利の上昇は、金利を生まない金（ゴールド）や、遠い将来の利益に依存するグロース株に逆風になりやすい。米実質金利の上昇はドル高要因にもなる。",
-    "related": ["breakeven-inflation", "ust10y", "growth-value"],
+    "related": [
+      "breakeven-inflation",
+      "ust10y",
+      "growth-value"
+    ],
     "example": "「米実質金利の上昇を受けて、金先物は下落しました」",
-    "source": "要確認：FRED（DFII10）、日本銀行「教えて！にちぎん」"
+    "source": "要確認：FRED（DFII10）、日本銀行「教えて！にちぎん」",
+    "cases": [
+      {
+        "date": "2022年4月",
+        "title": "米実質金利が2年ぶりにプラスへ",
+        "detail": "FRBの引き締めを受けて、米10年物価連動国債（TIPS）の利回りが2022年4月20日に2年超ぶりにプラスへ転じた。「マイナスの実質金利」に支えられてきた株などのリスク資産にとって逆風と受け止められた。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bloomberg 2022年4月20日",
+        "url": "https://www.bloomberg.com/news/articles/2022-04-20/u-s-10-year-real-yields-turn-positive-for-first-time-since-2020"
+      },
+      {
+        "label": "FRED DFII10（10年TIPS利回り）",
+        "url": "https://fred.stlouisfed.org/series/DFII10"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "breakeven-inflation",
@@ -103,9 +289,31 @@
     "summary": "名目国債と物価連動国債の利回り差。市場の期待インフレ率を示す。",
     "detail": "同じ年限の名目国債利回りから物価連動国債の利回りを引いたもの。将来のインフレ率がこの水準なら両者の投資成果が等しくなる、という意味で「ブレークイーブン」と呼ぶ。市場が織り込む期待インフレ率の代表的な指標だが、流動性やリスクプレミアムの影響も含む。",
     "marketImpact": "原油高や景気過熱でBEIが上昇すると、名目長期金利の上昇要因になる。名目金利の変化を「BEIの変化」と「実質金利の変化」に分けると、動きの理由を読み解きやすい。",
-    "related": ["real-yield", "core-cpi", "ust10y"],
+    "related": [
+      "real-yield",
+      "core-cpi",
+      "ust10y"
+    ],
     "example": "「原油高を受けて米10年BEIが上昇し、インフレ警戒が強まっています」",
-    "source": "要確認：FRED（T10YIE）、財務省 物価連動国債"
+    "source": "要確認：FRED（T10YIE）、財務省 物価連動国債",
+    "cases": [
+      {
+        "date": "2022年4月",
+        "title": "米期待インフレ率が約3%と記録的な水準に",
+        "detail": "ロシアのウクライナ侵攻後の資源高も重なり、米10年ブレークイーブン・インフレ率は2022年4月21日に約3.0%と、データのある期間で最高の水準になった。FRBのタカ派姿勢にもかかわらず期待インフレが下がらないことが警戒された。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bloomberg 2022年4月22日",
+        "url": "https://www.bloomberg.com/news/articles/2022-04-22/powell-s-hawkish-tone-fails-to-tamp-down-inflation-expectations"
+      },
+      {
+        "label": "FRED T10YIE（10年BEI）",
+        "url": "https://fred.stlouisfed.org/series/T10YIE"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "jgb-long-rate",
@@ -115,8 +323,39 @@
     "summary": "日本の長期金利の指標。新発10年物国債の利回りを指す。",
     "detail": "日本で「長期金利」と言えば、通常は新発10年物国債（JGB）の流通利回りを指す。住宅ローンの固定金利や企業の長期借入金利の基準になる。日銀は2016年からイールドカーブ・コントロール（YCC）で10年金利を操作していたが、2024年3月に撤廃した。",
     "marketImpact": "日銀の利上げ観測や国債買い入れ減額で上昇しやすい。上昇は利ざや改善期待から銀行株に追い風、不動産株には逆風とされる。日米金利差の縮小を通じて円高要因にもなる。",
-    "related": ["boj", "yield-curve", "interest-rate-differential"],
+    "related": [
+      "boj",
+      "yield-curve",
+      "interest-rate-differential"
+    ],
     "example": "「長期金利の指標となる新発10年物国債利回りは一時1.5%に上昇しました」",
-    "source": "要確認：財務省「国債金利情報」、日本銀行 金融政策決定会合の公表文（2024年3月）"
+    "source": "要確認：財務省「国債金利情報」、日本銀行 金融政策決定会合の公表文（2024年3月）",
+    "cases": [
+      {
+        "date": "2022年12月20日",
+        "title": "日銀のYCC修正（変動幅を±0.5%に拡大）",
+        "detail": "日銀は長期金利の許容変動幅を±0.25%程度から±0.5%程度に広げた。現状維持が大方の予想だったためサプライズとなり、10年債利回りは一時0.460%と約7年ぶりの水準に上昇、ドル円は131円台まで円高が進み、日経平均は669円安となった。黒田総裁は「利上げではない」と説明した。"
+      },
+      {
+        "date": "2024年3月19日",
+        "title": "YCCの撤廃",
+        "detail": "マイナス金利の解除と同時に、10年金利を0%程度に誘導するYCCも撤廃された。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "三井住友信託銀行 マーケット・コラム",
+        "url": "https://www.smtb.jp/personal/column/market-column/sera-column_41"
+      },
+      {
+        "label": "ビジネス+IT 2022年12月20日",
+        "url": "https://www.sbbit.jp/article/refers/101832"
+      },
+      {
+        "label": "CNN.co.jp 2024年3月19日",
+        "url": "https://www.cnn.co.jp/business/35216686.html"
+      }
+    ],
+    "verification": "sourced"
   }
 ]

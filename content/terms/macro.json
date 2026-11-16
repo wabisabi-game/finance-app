@@ -7,9 +7,32 @@
     "summary": "米国の金融政策を決める会合。年8回開かれ政策金利を決定する。",
     "detail": "FRB（連邦準備制度理事会）の理事7人と地区連銀総裁5人の計12人が投票権を持ち、FF金利の誘導目標などを決める。定例会合は年8回。声明文、議長の記者会見、年4回（3・6・9・12月）公表される経済見通し（SEP）とドットチャートが注目される。議事要旨は会合の3週間後に公表される。",
     "marketImpact": "結果そのものより、市場の事前の織り込みとの差で相場が動く。想定よりタカ派なら米金利上昇・ドル高・株安、ハト派ならその逆になりやすい。",
-    "related": ["ff-rate", "dot-plot", "hawkish-dovish", "qe-qt"],
+    "related": [
+      "ff-rate",
+      "dot-plot",
+      "hawkish-dovish",
+      "qe-qt"
+    ],
     "example": "「今週はFOMCを控え、様子見ムードが広がっています」",
-    "source": "要確認：FRB公式サイト FOMC Meeting calendars / About the FOMC"
+    "source": "要確認：FRB公式サイト FOMC Meeting calendars / About the FOMC",
+    "cases": [
+      {
+        "date": "2020年3月",
+        "title": "コロナ・ショックでの2度の緊急利下げ",
+        "detail": "FOMCは定例会合を待たず、3月3日に0.5%、15日（日曜日）に1.0%の緊急利下げを決め、政策金利を0〜0.25%まで下げた。緊急利下げは2008年の金融危機以来。あわせて国債とMBSの大規模な買い入れも再開した。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bankrate「Fed issues emergency rate cut」",
+        "url": "https://www.bankrate.com/banking/federal-reserve/fed-issues-emergency-rate-cut-march-2020"
+      },
+      {
+        "label": "PBS NewsHour 2020年3月15日",
+        "url": "https://www.pbs.org/newshour/economy/fed-slashes-rate-to-near-zero-eases-lending-rules"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "ff-rate",
@@ -19,9 +42,40 @@
     "summary": "米国の政策金利。銀行同士が翌日物で資金を貸し借りする金利。",
     "detail": "米国の銀行が準備預金を無担保・翌日物で貸し借りする際の金利。FOMCはこの金利の誘導目標を0.25%幅のレンジ（例：5.25〜5.50%）で決める。市場の織り込みはFF金利先物から計算され、CMEのFedWatchがよく引用される。",
     "marketImpact": "利上げは短期金利を押し上げ、借入コストの上昇を通じて景気とインフレを抑える。利下げはその逆。先行きの利下げ・利上げ観測の変化は、とくに2年債利回りに強く表れる。",
-    "related": ["fomc", "dot-plot", "inverted-yield-curve"],
+    "related": [
+      "fomc",
+      "dot-plot",
+      "inverted-yield-curve"
+    ],
     "example": "「FF金利先物市場は、年内2回の利下げを織り込んでいます」",
-    "source": "要確認：FRB Policy Tools、CME FedWatch"
+    "source": "要確認：FRB Policy Tools、CME FedWatch",
+    "cases": [
+      {
+        "date": "2022年6月〜11月",
+        "title": "4会合連続の0.75%利上げ",
+        "detail": "インフレを抑えるため、FOMCは2022年6・7・9・11月に4会合連続で0.75%の利上げを行った。0.75%幅の利上げは1994年以来。その後も利上げを続け、2023年7月26日に5.25〜5.50%と約22年ぶりの水準に達した。"
+      },
+      {
+        "date": "2024年9月18日",
+        "title": "4年半ぶりの利下げは0.5%幅",
+        "detail": "FOMCは2020年3月以来となる利下げを、0.5%の大幅な幅で行った（4.75〜5.00%へ）。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "InvestmentNews（2022年9月、3会合連続の0.75%利上げ）",
+        "url": "https://www.investmentnews.com/fed-hikes-interest-rates-by-75-basis-points-for-the-third-consecutive-time-226839"
+      },
+      {
+        "label": "Chatham Financial「FOMC recap July 2023」",
+        "url": "https://www.chathamfinancial.com/insights/fomc-recap-july-2023"
+      },
+      {
+        "label": "ABA Banking Journal 2024年9月",
+        "url": "https://bankingjournal.aba.com/2024/09/fomc-cuts-rates-by-50-basis-points/"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "dot-plot",
@@ -31,9 +85,31 @@
     "summary": "FOMC参加者が適切と考える政策金利の見通しを点で示した図。",
     "detail": "FOMC参加者（最大19人）それぞれが、各年末と長期の適切な政策金利水準をどう見ているかを点で示したもの。年4回（3・6・9・12月）、経済見通し（SEP）と一緒に公表される。中央値から「年内の利下げ（利上げ）回数の見通し」が読み取られる。",
     "marketImpact": "中央値が示す利下げ回数が市場の織り込みより少なければタカ派と受け止められ、金利上昇・ドル高につながりやすい。ただし約束ではなく、各時点の見通しにすぎない。",
-    "related": ["fomc", "ff-rate", "hawkish-dovish"],
+    "related": [
+      "fomc",
+      "ff-rate",
+      "hawkish-dovish"
+    ],
     "example": "「ドットチャートでは年内の利下げ見通しが3回から2回に減りました」",
-    "source": "要確認：FRB Summary of Economic Projections"
+    "source": "要確認：FRB Summary of Economic Projections",
+    "cases": [
+      {
+        "date": "2024年12月18日",
+        "title": "「タカ派的利下げ」で米株急落",
+        "detail": "FOMCは予想どおり0.25%の利下げ（4.25〜4.50%）を決めたが、ドットチャートでは2025年の利下げ見通しが9月時点の4回から2回に減った。利下げ期待の後退を嫌気して、S&P500は約3%、ダウ平均は約2.6%下落し、ダウは1974年以来の10日続落となった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Morningstar「Stocks Tumble on New Fed Rate Forecast」",
+        "url": "https://www.morningstar.com/markets/stocks-tumble-new-fed-rate-forecastheres-why"
+      },
+      {
+        "label": "Fortune 2024年12月18日",
+        "url": "https://fortune.com/2024/12/18/blackrock-rick-rieder-fed-rate-new-phase-dot-plot-trump-inflation-interest/"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "hawkish-dovish",
@@ -43,9 +119,31 @@
     "summary": "インフレ抑制のため引き締めに前向きなのがタカ派、緩和に前向きなのがハト派。",
     "detail": "金融政策のスタンスを表す言葉。タカ派は物価安定を重視し利上げや引き締めに積極的、ハト派は景気や雇用を重視し利下げや緩和に積極的な姿勢を指す。人物だけでなく、声明や発言の内容についても「タカ派的」「ハト派的」と使う。",
     "marketImpact": "タカ派的な発言はその国の金利上昇・通貨高・株安要因、ハト派的な発言は金利低下・通貨安・株高要因になりやすい。",
-    "related": ["fomc", "boj", "dot-plot"],
+    "related": [
+      "fomc",
+      "boj",
+      "dot-plot"
+    ],
     "example": "「パウエル議長の会見はタカ派的と受け止められ、米金利が上昇しました」",
-    "source": "要確認：証券会社の用語集（SMBC日興証券 初めてでもわかりやすい用語集 など）"
+    "source": "要確認：証券会社の用語集（SMBC日興証券 初めてでもわかりやすい用語集 など）",
+    "cases": [
+      {
+        "date": "2022年8月26日",
+        "title": "パウエル議長のジャクソンホール講演",
+        "detail": "市場が利上げの早期打ち止め（ピボット）を期待するなか、パウエル議長は「家計や企業に痛みをもたらしても」インフレ退治を続けると明言し、高い金利を「しばらく」維持する必要があると述べた。講演の後、S&P500は3.4%、ダウ平均は約1,000ドル下落した。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "NPR 2022年8月26日",
+        "url": "https://www.npr.org/2022/08/26/1119604922/federal-reserve-jerome-powell-inflation-interest-rates-recession"
+      },
+      {
+        "label": "BNN Bloomberg 2022年8月26日",
+        "url": "https://www.bnnbloomberg.ca/u-s-stocks-sink-into-close-with-hawkish-fed-chorus-1.1810653"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "qe-qt",
@@ -55,9 +153,40 @@
     "summary": "中央銀行が国債などを買い資産を増やすのがQE、減らすのがQT。",
     "detail": "QEは、政策金利がゼロ近くまで下がった後などに、中央銀行が国債やMBSを大量に買い入れて長期金利を押し下げ、市場に資金を供給する政策。QTはその逆で、満期が来た債券の再投資を止めるなどして保有資産（バランスシート）を縮小する。",
     "marketImpact": "QEは長期金利の低下とリスク資産の上昇を促しやすい。QTは国債の需給を緩め、タームプレミアムの上昇を通じて長期金利の上昇要因になる。",
-    "related": ["tapering", "term-premium", "fomc"],
+    "related": [
+      "tapering",
+      "term-premium",
+      "fomc"
+    ],
     "example": "「FRBはQTのペースを減速させることを決めました」",
-    "source": "要確認：FRB Balance Sheet Normalization、日本銀行「教えて！にちぎん」"
+    "source": "要確認：FRB Balance Sheet Normalization、日本銀行「教えて！にちぎん」",
+    "cases": [
+      {
+        "date": "2008年11月25日",
+        "title": "QE1の開始",
+        "detail": "FRBは政府系住宅金融機関（GSE）の債券1,000億ドルと住宅ローン担保証券（MBS）5,000億ドルの買い入れを発表した。後に「量的緩和」と呼ばれる政策の始まりで、MBSの買い入れは最終的に1.25兆ドルに達した。"
+      },
+      {
+        "date": "2022年6月〜2025年11月",
+        "title": "QT（量的引き締め）",
+        "detail": "FRBは2022年6月に保有資産の縮小を始め、2025年10月の会合で12月1日をもって終了すると決めた。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "FRB プレスリリース 2008年11月25日",
+        "url": "https://www.federalreserve.gov/newsevents/press/monetary/20081125b.htm"
+      },
+      {
+        "label": "Harvard Law School Forum「The Rescue of Fannie Mae and Freddie Mac」",
+        "url": "https://corpgov.law.harvard.edu/2021/11/17/the-rescue-of-fannie-mae-and-freddie-mac-module-f-federal-reserves-large-scale-asset-purchase-lsap/"
+      },
+      {
+        "label": "MUFG「The End of QT」",
+        "url": "https://www.mufgamericas.com/sites/default/files/document/2025-12/Chart_of_the_Day_12_2_The_End_of_QT.pdf"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "tapering",
@@ -67,9 +196,40 @@
     "summary": "量的緩和での資産買い入れ額を段階的に減らしていくこと。",
     "detail": "QEで毎月買い入れている資産の額を少しずつ減らすこと。保有資産が減るわけではなく、増えるペースが落ちる点でQTとは違う。通常は「テーパリング → 利上げ → QT」の順で正常化が進む。2013年にバーナンキ議長が示唆した際は、米金利が急騰し新興国から資金が流出した（テーパー・タントラム）。",
     "marketImpact": "緩和の縮小＝引き締め方向の一歩なので、金利上昇・ドル高要因。新興国の通貨や株には資金流出の圧力になりやすい。",
-    "related": ["qe-qt", "fomc", "hawkish-dovish"],
+    "related": [
+      "qe-qt",
+      "fomc",
+      "hawkish-dovish"
+    ],
     "example": "「FRBは11月からテーパリングを開始すると発表しました」",
-    "source": "要確認：FRB 2013年・2021年のFOMC声明"
+    "source": "要確認：FRB 2013年・2021年のFOMC声明",
+    "cases": [
+      {
+        "date": "2013年5月〜",
+        "title": "テーパー・タントラム",
+        "detail": "バーナンキ議長が2013年5月22日の議会証言で買い入れ縮小の可能性に触れると、米10年債利回りは約2%から年末には約3%へ急上昇し、新興国から資金が流出した。実際の縮小の決定は同年12月までずれ込んだ。"
+      },
+      {
+        "date": "2021年11月3日",
+        "title": "コロナ後のテーパリング開始",
+        "detail": "FOMCは月々の買い入れを国債100億ドル、MBS50億ドルずつ減らし始めると決めた。事前に十分予告されていたため、市場の反応は小さかった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "St. Louis Fed Economic Synopses 2014",
+        "url": "https://files.stlouisfed.org/research/publications/es/14/ES_2_2014-01-28.pdf"
+      },
+      {
+        "label": "Janus Henderson「Fed tapering: why the 2013-14 playbook could be misleading」",
+        "url": "https://www.janushenderson.com/en-be/advisor/article/fed-tapering-why-the-2013-14-playbook-could-be-misleading/"
+      },
+      {
+        "label": "FRB プレスリリース 2021年11月3日",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211103a.htm"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "core-cpi",
@@ -77,11 +237,38 @@
     "nameEn": "Core CPI",
     "category": "macro",
     "summary": "変動の大きい品目を除いた消費者物価指数。物価の基調を見る。",
-    "detail": "消費者物価指数（CPI）から値動きの激しい品目を除いたもの。米国のコアCPIは食品とエネルギーを除く。日本の「コアCPI」は生鮮食品を除く総合で、生鮮食品とエネルギーを除くものは「コアコアCPI」と呼ばれ、定義が違う点に注意。米CPIは労働省労働統計局（BLS）が毎月発表する。",
+    "detail": "消費者物価指数（CPI）から値動きの激しい品目を除いたもの。米国のコアCPIは食品とエネルギーを除く。日本で「コアCPI」と言えば通常は生鮮食品を除く総合で、米国とは定義が違う点に注意。生鮮食品とエネルギーも除く指数は「コアコアCPI」と呼ばれることが多いが、公式に決まった定義はなく、総務省は使う前に定義を確かめるよう案内している。米CPIは労働省労働統計局（BLS）が毎月発表する。",
     "marketImpact": "米コアCPIが市場予想を上回ると、利下げ観測が後退して米金利上昇・ドル高・株安になりやすい。下回ればその逆。前年比だけでなく前月比の伸びも注目される。",
-    "related": ["breakeven-inflation", "fomc", "ff-rate", "nfp"],
+    "related": [
+      "breakeven-inflation",
+      "fomc",
+      "ff-rate",
+      "nfp"
+    ],
     "example": "「米コアCPIは前月比0.4%上昇と市場予想を上回りました」",
-    "source": "要確認：米労働省労働統計局（BLS）CPI、総務省統計局 消費者物価指数"
+    "source": "要確認：米労働省労働統計局（BLS）CPI、総務省統計局 消費者物価指数",
+    "cases": [
+      {
+        "date": "2022年",
+        "title": "米インフレが約40年ぶりの高さに",
+        "detail": "2022年6月の米CPIは前年比9.1%と1981年11月以来の伸び。総合はその後鈍化したが、コアCPIは9月に6.6%と1982年8月以来の高さに達し、物価高が幅広い品目に広がったことを示した。FRBの大幅利上げが続く根拠となった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Axios 2022年7月13日",
+        "url": "https://www.axios.com/2022/07/13/june-cpi-report-inflation-fed-biden"
+      },
+      {
+        "label": "CBS News 2022年10月13日",
+        "url": "https://www.cbsnews.com/news/inflation-cpi-core-september-2022-10-13"
+      },
+      {
+        "label": "総務省統計局 消費者物価指数 Q&A（コア指数の定義）",
+        "url": "https://www.stat.go.jp/data/cpi/4-1.html"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "nfp",
@@ -91,9 +278,27 @@
     "summary": "米雇用統計の中心となる指標。農業以外の雇用者数の前月比増減。",
     "detail": "米労働省労働統計局（BLS）が原則毎月第1金曜日に発表する雇用統計の主要項目。農業部門を除く雇用者数が前月から何万人増減したかを示す。同時に発表される失業率と平均時給（賃金インフレの指標）も注目される。過去2か月分の改定幅も重要。",
     "marketImpact": "雇用者数や平均時給が予想より強いと、利下げ観測が後退して米金利上昇・ドル高になりやすい。株は「景気が強い」と好感するか「金利上昇」を嫌気するか、局面によって反応が分かれる。",
-    "related": ["core-cpi", "fomc", "ff-rate"],
+    "related": [
+      "core-cpi",
+      "fomc",
+      "ff-rate"
+    ],
     "example": "「非農業部門雇用者数は前月比25万人増と、市場予想の18万人増を上回りました」",
-    "source": "要確認：米労働省労働統計局（BLS）Employment Situation"
+    "source": "要確認：米労働省労働統計局（BLS）Employment Situation",
+    "cases": [
+      {
+        "date": "2020年4月",
+        "title": "統計史上最悪の雇用統計",
+        "detail": "新型コロナによる経済活動の停止で、2020年4月の非農業部門雇用者数は2,050万人減、失業率は14.7%に急上昇した。いずれも統計開始以来最悪で、前月からの悪化幅も過去最大だった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "米労働統計局（BLS）2020年5月8日発表",
+        "url": "https://www.bls.gov/news.release/archives/empsit_05082020.htm"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "ism-manufacturing",
@@ -103,9 +308,27 @@
     "summary": "米製造業の景況感を示す指数。50が好不況の分かれ目。",
     "detail": "米供給管理協会（ISM）が製造業の購買担当者へのアンケートをもとに毎月第1営業日に発表する指数。新規受注、生産、雇用、入荷遅延、在庫の5項目から算出する。50を上回れば活動の拡大、下回れば縮小を示す。月初に出るため景気の先行指標として注目される。非製造業（サービス業）版もある。",
     "marketImpact": "予想を上回れば景気の強さを示し、金利上昇・ドル高・景気敏感株高になりやすい。構成項目の「新規受注」は先行性、「支払価格」はインフレ圧力の手がかりとして見られる。",
-    "related": ["nfp", "sector-rotation", "core-cpi"],
+    "related": [
+      "nfp",
+      "sector-rotation",
+      "core-cpi"
+    ],
     "example": "「ISM製造業景況感指数は48.5と、好不況の節目の50を下回りました」",
-    "source": "要確認：ISM公式サイト ISM Report On Business"
+    "source": "要確認：ISM公式サイト ISM Report On Business",
+    "cases": [
+      {
+        "date": "2020年4月",
+        "title": "ISM製造業が41.5に低下",
+        "detail": "コロナ・ショックで、2020年4月のISM製造業景況感指数は41.5と2009年以来の低さに。新規受注は27.1まで落ち込んだ。ただし市場予想（36.0）よりは良かった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "First Trust「The ISM Manufacturing Index Declined to 41.5 in April」",
+        "url": "https://ftportfolios.com/blogs/EconBlog/2020/5/1/the-ism-manufacturing-index-declined-to-41.5-in-april"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "boj",
@@ -115,8 +338,40 @@
     "summary": "日本銀行が金融政策を決める会合。年8回開かれる。",
     "detail": "総裁、副総裁2人、審議委員6人の計9人の政策委員が多数決で金融政策を決める。年8回開催。政策金利は無担保コール翌日物金利の誘導目標。1・4・7・10月の会合では「経済・物価情勢の展望（展望レポート）」が公表される。2024年3月にマイナス金利とYCCを解除した。",
     "marketImpact": "利上げやタカ派的な姿勢は日本の金利上昇・円高要因で、円高は輸出株の重荷になりやすい。銀行株には追い風とされる。据え置きやハト派的な会見は円安要因。",
-    "related": ["jgb-long-rate", "hawkish-dovish", "usdjpy", "carry-trade"],
+    "related": [
+      "jgb-long-rate",
+      "hawkish-dovish",
+      "usdjpy",
+      "carry-trade"
+    ],
     "example": "「日銀は金融政策決定会合で政策金利の据え置きを決めました」",
-    "source": "要確認：日本銀行公式サイト 金融政策決定会合の運営、公表文（2024年3月）"
+    "source": "要確認：日本銀行公式サイト 金融政策決定会合の運営、公表文（2024年3月）",
+    "cases": [
+      {
+        "date": "2024年3月19日",
+        "title": "17年ぶりの利上げ（マイナス金利の解除）",
+        "detail": "日銀はマイナス金利を解除し、短期金利の誘導目標を0〜0.1%程度に引き上げた。約17年ぶりの利上げで、YCCの撤廃とETFの新規買い入れの終了も決めた（賛成7・反対2）。"
+      },
+      {
+        "date": "2024年7月31日・2025年1月24日",
+        "title": "追加利上げ",
+        "detail": "2024年7月に0.25%程度、2025年1月に0.5%程度へ引き上げた。0.5%は2008年以来17年ぶりの水準。7月の利上げは、8月初めの円急騰と株価急落の一因とも指摘された。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNN.co.jp 2024年3月19日",
+        "url": "https://www.cnn.co.jp/business/35216686.html"
+      },
+      {
+        "label": "ビジネス+IT 2024年7月31日",
+        "url": "https://www.sbbit.jp/article/refers/145554"
+      },
+      {
+        "label": "時事通信 2025年1月24日",
+        "url": "https://sp.m.jiji.com/english/show/37941"
+      }
+    ],
+    "verification": "sourced"
   }
 ]

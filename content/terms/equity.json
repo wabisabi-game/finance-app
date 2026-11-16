@@ -7,9 +7,27 @@
     "summary": "純利益を発行済み株式数で割った値。1株がいくら稼いだかを示す。",
     "detail": "EPS ＝ 当期純利益 ÷ 発行済み株式数。株価 ＝ EPS × PER と分解でき、株価の変動を「利益の変化」と「評価（バリュエーション）の変化」に分けて考える基礎になる。決算ではEPSが市場予想（コンセンサス）を上回ったかどうかが注目される。",
     "marketImpact": "EPSや会社の業績見通し（ガイダンス）が市場予想を上回ると株価は上がりやすい。自社株買いは株式数を減らすためEPSを押し上げる。",
-    "related": ["per", "roe", "sp500"],
+    "related": [
+      "per",
+      "roe",
+      "sp500"
+    ],
     "example": "「調整後EPSは市場予想を上回りましたが、見通しが弱く株価は時間外で下落しました」",
-    "source": "要確認：日本取引所グループ（JPX）用語集、証券会社の用語集"
+    "source": "要確認：日本取引所グループ（JPX）用語集、証券会社の用語集",
+    "cases": [
+      {
+        "date": "2022年10月27日",
+        "title": "メタ（旧フェイスブック）の決算後の急落",
+        "detail": "7〜9月期のEPSは1.64ドルと市場予想（1.89ドル）を大きく下回り、メタバース事業への巨額の支出と弱い売上見通しも嫌気された。株価は1日で24.5%下落し、2016年以来の安値となった。売上高は予想を上回っていたが、利益と見通しが重視された。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNBC 2022年10月27日",
+        "url": "https://www.cnbc.com/amp/2022/10/27/meta-stock-falls-23percent-on-earnings-miss-analyst-downgrades.html"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "per",
@@ -19,9 +37,32 @@
     "summary": "株価がEPSの何倍かを示す指標。割高・割安の目安になる。",
     "detail": "PER ＝ 株価 ÷ EPS。利益の何年分の値段が付いているかを表す。実績利益を使う実績PERと、予想利益を使う予想PERがあり、市場では主に予想PERが使われる。成長期待が高い企業ほどPERは高くなる。PERの逆数（益回り）は債券利回りと比較される。",
     "marketImpact": "金利が上がると、将来利益の割引率が上がり、また債券と比べた株の魅力が薄れるため、PERは低下（バリュエーション調整）しやすい。高PER銘柄ほど影響が大きい。",
-    "related": ["eps", "pbr", "growth-value", "ust10y"],
+    "related": [
+      "eps",
+      "pbr",
+      "growth-value",
+      "ust10y"
+    ],
     "example": "「S&P500の予想PERは22倍台と、過去平均を上回る水準です」",
-    "source": "要確認：日本取引所グループ（JPX）用語集"
+    "source": "要確認：日本取引所グループ（JPX）用語集",
+    "cases": [
+      {
+        "date": "2000年3月",
+        "title": "ITバブルの頂点",
+        "detail": "S&P500の予想PERは約24〜25倍まで上昇し、ナスダック総合指数のPERは70倍を超えた。その後バブルが崩壊し、ハイテク株は長期の下落に入った。現在でも、市場全体のPERが割高かを議論する際の基準点としてよく引き合いに出される。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Trustnet「US equities approach dot-com bubble valuations」",
+        "url": "https://www.trustnet.com/news/13459450/us-equities-approach-dot-com-bubble-valuations-as-markets-rip-higher"
+      },
+      {
+        "label": "RBC Wealth Management「Are We In A Bubble?」",
+        "url": "https://ca.rbcwealthmanagement.com/irene.so/blog/4682321-Chart-Alert-Are-We-In-A-Bubble"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "pbr",
@@ -31,9 +72,32 @@
     "summary": "株価が1株当たり純資産の何倍かを示す指標。1倍が目安とされる。",
     "detail": "PBR ＝ 株価 ÷ BPS（1株当たり純資産）。1倍を下回ると、株価が帳簿上の解散価値を下回っていることを意味する。PBR ＝ PER × ROE と分解できる。東京証券取引所は2023年3月、上場企業に資本コストや株価を意識した経営を要請し、PBR1倍割れの是正が注目された。",
     "marketImpact": "東証の要請以降、低PBR企業による自社株買いや増配などの株主還元の強化が相次ぎ、日本株のバリュー株が買われる材料になった。",
-    "related": ["per", "roe", "growth-value", "nikkei225"],
+    "related": [
+      "per",
+      "roe",
+      "growth-value",
+      "nikkei225"
+    ],
     "example": "「東証の要請を受け、PBR1倍割れの企業で株主還元を強化する動きが広がっています」",
-    "source": "要確認：東京証券取引所「資本コストや株価を意識した経営の実現に向けた対応について」（2023年3月）"
+    "source": "要確認：東京証券取引所「資本コストや株価を意識した経営の実現に向けた対応について」（2023年3月）",
+    "cases": [
+      {
+        "date": "2023年3月31日",
+        "title": "東証の「資本コストや株価を意識した経営」の要請",
+        "detail": "当時プライム市場の4〜5割の企業がPBR1倍以下だったことを背景に、東証はプライム・スタンダード市場の約3,300社に、資本コストや株価を分析し改善策を開示するよう求めた。2023年12月末時点でプライム企業の49%（815社）が開示し、自社株買いや増配が相次いだ。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "第一生命経済研究所",
+        "url": "https://www.dlri.co.jp/report/ld/465802.html"
+      },
+      {
+        "label": "KPMG「M&A Commentary」2023年9月",
+        "url": "https://kpmg.com/jp/ja/home/insights/2023/09/fas-ma-commentary-04.html"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "roe",
@@ -43,9 +107,31 @@
     "summary": "自己資本に対してどれだけ利益を上げたかを示す収益性の指標。",
     "detail": "ROE ＝ 当期純利益 ÷ 自己資本。株主が出した資本をどれだけ効率よく使って稼いでいるかを表す。デュポン分解では「売上高純利益率 × 総資産回転率 × 財務レバレッジ」に分けられる。借入を増やしてもROEは上がるため、中身を見る必要がある。",
     "marketImpact": "ROEが高い、または改善が見込まれる企業は高く評価されやすい。自社株買いは自己資本を減らすためROEを押し上げる。日本企業は米国企業に比べROEが低いことが課題とされてきた。",
-    "related": ["pbr", "eps", "per"],
+    "related": [
+      "pbr",
+      "eps",
+      "per"
+    ],
     "example": "「同社は中期経営計画でROE10%以上を目標に掲げました」",
-    "source": "要確認：経済産業省「伊藤レポート」（2014年）、JPX用語集"
+    "source": "要確認：経済産業省「伊藤レポート」（2014年）、JPX用語集",
+    "cases": [
+      {
+        "date": "2014年8月",
+        "title": "伊藤レポートの「ROE8%」",
+        "detail": "経済産業省のプロジェクト（座長：伊藤邦雄氏）の最終報告書は、日本企業の資本効率の低さを指摘し、ROE8%を「最低限」の水準として示した。以後、ROE8%は日本企業の経営目標や、議決権行使の判断基準として広く使われるようになった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "大和総研 コラム",
+        "url": "https://www.dir.co.jp/report/column/20150226_009496.html"
+      },
+      {
+        "label": "東洋経済オンライン",
+        "url": "https://toyokeizai.net/articles/-/176448"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "growth-value",
@@ -55,9 +141,32 @@
     "summary": "高成長が期待される株がグロース、指標面で割安な株がバリュー。",
     "detail": "グロース株は利益成長への期待が高く、PERやPBRが高い銘柄（ハイテクなど）。バリュー株は利益や資産に比べて株価が割安な銘柄（金融、エネルギー、商社など）。グロース株は価値の多くを遠い将来の利益に頼るため、金利の変化に敏感。",
     "marketImpact": "金利上昇局面ではグロース株が売られ、バリュー株（とくに金利上昇が利ざや改善につながる銀行株）が相対的に強くなりやすい。金利低下局面ではグロース株が買われやすい。",
-    "related": ["per", "sector-rotation", "ust10y", "duration"],
+    "related": [
+      "per",
+      "sector-rotation",
+      "ust10y",
+      "duration"
+    ],
     "example": "「米金利の低下を受け、ハイテクなどグロース株に買いが入りました」",
-    "source": "要確認：証券会社の用語集、MSCI / Russell のスタイル指数の定義"
+    "source": "要確認：証券会社の用語集、MSCI / Russell のスタイル指数の定義",
+    "cases": [
+      {
+        "date": "2022年",
+        "title": "金利上昇でグロース株が大きく下落",
+        "detail": "FRBの急速な利上げで、ハイテク株の多いナスダック総合指数は2022年に33.1%下落した。米国株のバリュー指数はグロース指数を20ポイント超上回り、1979年の指数算出開始以来2番目に大きな差となった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Nasdaq「2022 Review and Outlook」",
+        "url": "https://www.nasdaq.com/articles/2022-review-and-outlook"
+      },
+      {
+        "label": "The Motley Fool 2022年12月30日",
+        "url": "https://www.fool.com/investing/2022/12/30/just-how-badly-did-stock-markets-perform-in-2022"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "sector-rotation",
@@ -67,9 +176,31 @@
     "summary": "景気や金利の局面に応じて、資金が業種間を移っていくこと。",
     "detail": "投資家が景気循環や金利の見通しに応じて、有望な業種へ資金を移す動き。景気敏感（シクリカル）株は素材、資本財、金融、一般消費財など。ディフェンシブ株は生活必需品、ヘルスケア、公益など、景気に業績が左右されにくい業種を指す。",
     "marketImpact": "景気回復期待が強まると景気敏感株へ、景気後退懸念が強まるとディフェンシブ株へ資金が向かいやすい。指数全体が横ばいでも、内部では大きな入れ替えが起きていることがある。",
-    "related": ["growth-value", "ism-manufacturing", "sp500"],
+    "related": [
+      "growth-value",
+      "ism-manufacturing",
+      "sp500"
+    ],
     "example": "「ハイテク株から出遅れていた景気敏感株へ資金を移すセクターローテーションが見られます」",
-    "source": "要確認：証券会社の用語集、GICS（世界産業分類基準）の業種区分"
+    "source": "要確認：証券会社の用語集、GICS（世界産業分類基準）の業種区分",
+    "cases": [
+      {
+        "date": "2020年11月9日",
+        "title": "ワクチン発表で起きた急激なローテーション",
+        "detail": "ファイザーが新型コロナワクチンの有効性が90%超と発表すると、景気回復への期待から航空、エネルギー、金融などの景気敏感株が急騰し、米国のバリュー株指数は5.7%上昇した。一方、巣ごもり需要で買われていたZoomなどは5〜25%下落し、モメンタム戦略は歴史的な損失を出した。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bloomberg 2020年11月9日",
+        "url": "https://www.bloomberg.com/news/articles/2020-11-09/ridiculed-value-stock-bets-looking-brilliant-on-vaccine-progress"
+      },
+      {
+        "label": "Axios 2020年11月10日",
+        "url": "https://www.axios.com/2020/11/10/pfizer-vaccine-stock-market"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "nikkei225",
@@ -79,9 +210,36 @@
     "summary": "日本株の代表的な指数。日経平均は株価平均型、TOPIXは時価総額加重型。",
     "detail": "日経平均は日本経済新聞社が選ぶ225銘柄の株価平均型の指数で、株価水準の高い「値がさ株」（ファーストリテイリング、東京エレクトロン、ソフトバンクグループなど）の影響を受けやすい。TOPIXは浮動株ベースの時価総額加重型で、市場全体の動きをより広く表す。両者の比はNT倍率と呼ばれる。",
     "marketImpact": "輸出企業の比重が大きいため、円安は日本株の追い風、円高は逆風になりやすい。前日の米国株、とくに半導体株の動きに影響されやすい。",
-    "related": ["sp500", "usdjpy", "pbr"],
+    "related": [
+      "sp500",
+      "usdjpy",
+      "pbr"
+    ],
     "example": "「日経平均は値がさの半導体関連株がけん引し、大幅に反発しました」",
-    "source": "要確認：日本経済新聞社 日経平均プロフィル、JPX TOPIX算出要領"
+    "source": "要確認：日本経済新聞社 日経平均プロフィル、JPX TOPIX算出要領",
+    "cases": [
+      {
+        "date": "2024年2月22日",
+        "title": "34年ぶりの最高値更新",
+        "detail": "米エヌビディアの好決算を受けて半導体関連株が大きく上昇し、日経平均は終値3万9098円68銭と、1989年12月29日の3万8915円87銭を上回って史上最高値を更新した。"
+      },
+      {
+        "date": "2024年8月5日",
+        "title": "過去最大の下げ幅",
+        "detail": "日銀の利上げ、米景気への不安、円キャリートレードの巻き戻しが重なり、日経平均は4,451円28銭（12.4%）安と、1987年のブラックマンデー翌日を超える過去最大の下げ幅を記録した。翌6日には3,217円高と過去最大の上げ幅で反発した。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ビジネス+IT 2024年2月22日",
+        "url": "https://www.sbbit.jp/article/refers/134325"
+      },
+      {
+        "label": "SBI証券 マーケット速報 2024年8月5日",
+        "url": "https://go.sbisec.co.jp/media/report/ma_flash/ma_flash_240805.html"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "sp500",
@@ -91,8 +249,31 @@
     "summary": "米国の大型株約500銘柄で構成する、米国株の代表的な指数。",
     "detail": "S&Pダウ・ジョーンズ・インディシーズが算出する、浮動株調整後の時価総額加重型の指数。米国株式市場の時価総額のおよそ8割をカバーする。時価総額の大きい大型ハイテク株の比重が高い。ダウ平均は30銘柄の株価平均型、ナスダック総合はハイテク比率が高い、という違いがある。",
     "marketImpact": "世界の株式市場のベンチマークで、その動きは翌日の日本株にも波及する。大型ハイテク株の決算や米長期金利の動きに左右されやすい。",
-    "related": ["nikkei225", "vix", "per", "growth-value"],
+    "related": [
+      "nikkei225",
+      "vix",
+      "per",
+      "growth-value"
+    ],
     "example": "「S&P500は3日続伸し、過去最高値を更新しました」",
-    "source": "要確認：S&P Dow Jones Indices S&P 500 ファクトシート"
+    "source": "要確認：S&P Dow Jones Indices S&P 500 ファクトシート",
+    "cases": [
+      {
+        "date": "2020年2月〜3月",
+        "title": "史上最短の弱気相場",
+        "detail": "S&P500は2020年2月19日の高値から3月23日の安値まで約34%下落した。しかし大規模な金融・財政政策で急回復し、8月18日には高値を更新。下落から回復までの速さは史上例がなかった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Investing.com（Reuters配信）",
+        "url": "https://www.investing.com/news/stock-market-news/say-goodbye-to-the-shortest-bear-market-in-sp-500-history-2270085"
+      },
+      {
+        "label": "S&P Dow Jones Indices S&P 500 brochure",
+        "url": "https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-brochure.pdf"
+      }
+    ],
+    "verification": "sourced"
   }
 ]

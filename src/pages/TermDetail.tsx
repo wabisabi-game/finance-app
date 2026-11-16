@@ -61,6 +61,22 @@ export default function TermDetail() {
       <Section title="市場で何が起きるか">{term.marketImpact}</Section>
       <Section title="ニュースでの使われ方">{term.example}</Section>
 
+      {term.cases && term.cases.length > 0 && (
+        <section className="card mb-3">
+          <h2 className="label">過去の事例</h2>
+          <ol className="border-accent/30 relative ml-1.5 space-y-5 border-l-2 pl-5">
+            {term.cases.map((c) => (
+              <li key={c.date + c.title} className="relative">
+                <span className="bg-accent ring-surface absolute top-1.5 -left-[27px] h-3 w-3 rounded-full ring-4" aria-hidden="true" />
+                <p className="text-accent-ink text-xs font-bold tracking-wide">{c.date}</p>
+                <p className="mt-0.5 font-bold leading-snug">{c.title}</p>
+                <p className="mt-1.5 text-sm leading-relaxed">{c.detail}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
       {term.related.length > 0 && (
         <Section title="関連用語">
           <div className="flex flex-wrap gap-2">
@@ -72,13 +88,24 @@ export default function TermDetail() {
         </Section>
       )}
 
-      <Section title="出典メモ">
-        <p className="text-sm">{term.source}</p>
-        {!term.verified && (
-          <p className="bg-warn-soft text-warn mt-3 rounded-xl px-3 py-2 text-xs font-medium">
-            裏取り前：この用語はAIが下書きしたもので、出典での確認がまだ済んでいません。
-          </p>
+      <Section title="出典">
+        {term.verification === 'sourced' ? (
+          <p className="bg-good-soft text-good mb-3 rounded-xl px-3 py-2 text-xs font-bold">確認済み：説明と事例の日付・数値を、下の出典と照合しました（2026年11月）。</p>
+        ) : term.verification === 'reviewed' ? (
+          <p className="bg-raised text-sub mb-3 rounded-xl px-3 py-2 text-xs font-bold">定義を見直し済み：一般的な定義と照合しました。個別の出典リンクはありません。</p>
+        ) : (
+          <p className="bg-warn-soft text-warn mb-3 rounded-xl px-3 py-2 text-xs font-medium">確認前：AIの下書きで、出典での確認がまだ済んでいません。</p>
         )}
+        {term.sources && term.sources.length > 0 && (
+          <ul className="mb-3 space-y-1.5 text-sm">
+            {term.sources.map((s) => (
+              <li key={s.url}>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-accent-ink underline decoration-1 underline-offset-4">{s.label}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p className="muted text-xs">参考：{term.source.replace(/^要確認：/, '')}</p>
       </Section>
     </>
   )

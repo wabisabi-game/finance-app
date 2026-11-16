@@ -48,3 +48,19 @@ describe('content', () => {
     }
   })
 })
+
+describe('cases and sources', () => {
+  it('事例と出典の形がそろっている', () => {
+    for (const t of terms) {
+      for (const c of t.cases ?? []) {
+        expect(c.date && c.title && c.detail, t.id).toBeTruthy()
+      }
+      for (const s of t.sources ?? []) {
+        expect(s.label, t.id).toBeTruthy()
+        expect(s.url, `${t.id} ${s.url}`).toMatch(/^https:\/\//)
+      }
+      if (t.cases?.length) expect(t.sources?.length, `${t.id} は事例があるのに出典がない`).toBeGreaterThan(0)
+      if (t.verification === 'sourced') expect(t.sources?.length, t.id).toBeGreaterThan(0)
+    }
+  })
+})

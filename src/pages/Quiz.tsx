@@ -46,7 +46,8 @@ export default function Quiz() {
         <h2 className="text-lg font-bold">自主演習</h2>
         <p className="muted mb-4 text-sm">好きな分野を何度でも解けます。正解しても復習の間隔は延びません。</p>
         <div className="grid grid-cols-2 gap-2">
-          <Link to="/quiz/practice" className="btn col-span-2">ランダム10問</Link>
+          <Link to="/quiz/practice" className="btn">ランダム10問</Link>
+          <Link to="/quiz/practice?mode=cases" className="btn">事例から当てる</Link>
           {CATEGORIES.map((c) => (
             <Link key={c.id} to={`/quiz/practice?category=${c.id}`} className="btn h-auto flex-col items-start gap-0.5 py-3 text-left">
               <span className="flex items-center gap-1.5">

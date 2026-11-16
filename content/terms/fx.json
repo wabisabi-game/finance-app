@@ -7,9 +7,32 @@
     "summary": "1ドルが何円かを示す為替レート。数字が上がると円安・ドル高。",
     "detail": "1ドルを買うのに必要な円の額。150円から155円になるのは、ドルの値段が上がった＝円の価値が下がったので「円安・ドル高」。日米の金利差、投資家のリスク姿勢、貿易や投資に伴う実需の資金の流れなどで動く。",
     "marketImpact": "円安は輸出企業の円換算の利益を増やすため日本株の追い風になりやすい一方、輸入物価を押し上げる。円高はその逆。急激な変動は政府・日銀の為替介入への警戒を高める。",
-    "related": ["interest-rate-differential", "fx-intervention", "carry-trade", "nikkei225"],
+    "related": [
+      "interest-rate-differential",
+      "fx-intervention",
+      "carry-trade",
+      "nikkei225"
+    ],
     "example": "「ドル円は一時155円台まで円安が進みました」",
-    "source": "要確認：日本銀行 外国為替市況、財務省 外国為替平衡操作の実施状況"
+    "source": "要確認：日本銀行 外国為替市況、財務省 外国為替平衡操作の実施状況",
+    "cases": [
+      {
+        "date": "2024年7月3日",
+        "title": "37年半ぶりの円安",
+        "detail": "日米金利差が大きいまま縮まらず、ドル円は一時161円95銭近辺と1986年12月以来の円安・ドル高水準を付けた。その後、日銀の利上げや米国の景気不安をきっかけに、8月初めにかけて急速に円高に戻した。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "外為どっとコム 2024年7月",
+        "url": "https://www.gaitame.com/media/entry/2024/07/10/074555"
+      },
+      {
+        "label": "DIME",
+        "url": "https://dime.jp/genre/1817026/"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "interest-rate-differential",
@@ -19,9 +42,28 @@
     "summary": "2国間の金利の差。金利の高い通貨が買われやすい。",
     "detail": "2つの国の金利の差。資金はより高い利回りを求めて動くため、金利差が拡大すると高金利通貨が買われやすい。ドル円では日米の2年債や10年債の利回り差との連動がよく指摘される。水準そのものより、金利差が広がる方向か縮む方向かが重視される。",
     "marketImpact": "米金利の上昇や日本の金利低下で日米金利差が拡大すると円安・ドル高、米利下げ観測や日銀の利上げ観測で縮小すると円高・ドル安になりやすい。",
-    "related": ["usdjpy", "carry-trade", "ust10y", "boj"],
+    "related": [
+      "usdjpy",
+      "carry-trade",
+      "ust10y",
+      "boj"
+    ],
     "example": "「日米金利差の縮小が意識され、円を買い戻す動きが強まりました」",
-    "source": "要確認：日本銀行 展望レポートのBOX、証券会社の為替レポート"
+    "source": "要確認：日本銀行 展望レポートのBOX、証券会社の為替レポート",
+    "cases": [
+      {
+        "date": "2022年",
+        "title": "日米の金融政策の違いによる円安",
+        "detail": "インフレを抑えるためFRBが急速に利上げした一方、日銀は大規模緩和を続けたため、日米金利差が急拡大して円安が進んだ。政府・日銀は2022年9月22日に24年ぶりとなる円買い介入に踏み切った。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "時事通信「24年ぶり円買い介入、2.8兆円」",
+        "url": "https://sp.m.jiji.com/english/show/22951"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "carry-trade",
@@ -31,9 +73,32 @@
     "summary": "低金利通貨で調達し、高金利通貨や資産で運用して金利差を得る取引。",
     "detail": "金利の低い通貨（調達通貨）を借りて売り、金利の高い通貨や利回りの高い資産に投資して、金利差（キャリー）を得る取引。長く低金利が続いた円は代表的な調達通貨で、「円キャリートレード」と呼ばれる。為替が安定しているほど有利で、為替の急変に弱い。",
     "marketImpact": "積み上がる過程では円安要因。相場が急変してボラティリティが高まると、取引の解消（巻き戻し）で円が急速に買い戻される。2024年8月には日銀の利上げと米景気懸念をきっかけに巻き戻しが起き、円急騰と日本株の急落を招いた。",
-    "related": ["interest-rate-differential", "risk-off", "usdjpy", "implied-volatility"],
+    "related": [
+      "interest-rate-differential",
+      "risk-off",
+      "usdjpy",
+      "implied-volatility"
+    ],
     "example": "「円キャリートレードの巻き戻しで、円が急騰しました」",
-    "source": "要確認：BIS Bulletin（2024年8月の市場変動に関する分析）"
+    "source": "要確認：BIS Bulletin（2024年8月の市場変動に関する分析）",
+    "cases": [
+      {
+        "date": "2024年8月初め",
+        "title": "円キャリートレードの巻き戻し",
+        "detail": "日銀の利上げと米国の景気不安をきっかけに、円を借りて高金利通貨などで運用していたポジションが一斉に解消された。円が急騰し、8月5日には日本株が12%下落、米国のVIX指数は1日の上昇幅として過去最大を記録した。BISはこの局面を円キャリートレードの巻き戻しとして分析している。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "BIS Bulletin No 90「The market turbulence and carry trade unwind of August 2024」",
+        "url": "https://www.bis.org/publ/bisbull90.htm"
+      },
+      {
+        "label": "BIS Bulletin No 95「Anatomy of the VIX spike in August 2024」",
+        "url": "https://www.bis.org/publ/bisbull95.htm"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "fx-intervention",
@@ -43,9 +108,44 @@
     "summary": "通貨当局が為替相場を安定させるために市場で通貨を売買すること。",
     "detail": "正式には外国為替平衡操作。日本では財務大臣が決定し、日本銀行が実務を行う。円安を止める介入は、外貨準備のドルを売って円を買う（円買い介入）。実施前には「過度な変動は望ましくない」「あらゆる手段を排除しない」などの口先介入や、日銀が銀行に水準を照会するレートチェックが行われることがある。",
     "marketImpact": "円買い介入が入ると短時間で数円規模の円高が進む。ただし金利差などの基礎的な条件が変わらなければ、効果は一時的になりやすい。実績は財務省が月次で公表する。",
-    "related": ["usdjpy", "interest-rate-differential"],
+    "related": [
+      "usdjpy",
+      "interest-rate-differential"
+    ],
     "example": "「政府・日銀による円買い介入への警戒感から、円安の進行は一服しています」",
-    "source": "要確認：財務省「外国為替平衡操作の実施状況」、日本銀行「教えて！にちぎん」"
+    "source": "要確認：財務省「外国為替平衡操作の実施状況」、日本銀行「教えて！にちぎん」",
+    "cases": [
+      {
+        "date": "2022年9月22日",
+        "title": "24年ぶりの円買い介入",
+        "detail": "日米金利差の拡大で円安が進むなか、政府・日銀は約24年ぶりとなる円買い介入を実施した。7〜9月期の介入額は2兆8382億円で、実施は22日の1日のみ。1日の円買い介入額として当時の過去最大だった。"
+      },
+      {
+        "date": "2024年4月〜5月",
+        "title": "9兆7885億円の介入",
+        "detail": "4月26日〜5月29日の介入額は9兆7885億円と、円買い介入として当時の過去最大に。ドル円が急速に円高方向へ動いた4月29日と5月2日に、介入があったとみられていた。"
+      },
+      {
+        "date": "2026年4月〜5月",
+        "title": "月間の介入額が過去最大に",
+        "detail": "財務省は2026年5月29日、4月28日〜5月27日に総額11兆7349億円の介入を行ったと公表した。2024年の同時期を上回り、月次ベースで過去最大となった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "時事通信「24年ぶり円買い介入、2.8兆円」",
+        "url": "https://sp.m.jiji.com/english/show/22951"
+      },
+      {
+        "label": "ビジネス+IT 2024年5月31日",
+        "url": "https://www.sbbit.jp/article/refers/141508"
+      },
+      {
+        "label": "秋田魁新報（共同通信）2026年5月29日",
+        "url": "https://www.sakigake.jp/news/article/20260529CO0155/"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "risk-off",
@@ -55,9 +155,32 @@
     "summary": "投資家がリスクを避けるのがリスクオフ、積極的に取るのがリスクオン。",
     "detail": "リスクオフは、景気悪化の懸念や地政学リスクなどで投資家がリスク資産を売り、安全資産へ資金を移す局面。リスクオンはその逆。安全資産とされるのは米国債、金、円、スイスフランなど。円が買われるのは、日本が世界最大の対外純資産国であることや、円キャリートレードの巻き戻しが起きることが背景とされる。",
     "marketImpact": "リスクオフでは株安、国債買い（金利低下）、VIX上昇、クレジットスプレッド拡大、円高・スイスフラン高が同時に起きやすい。リスクオンではその逆。",
-    "related": ["vix", "carry-trade", "credit-spread", "bond-price-yield"],
+    "related": [
+      "vix",
+      "carry-trade",
+      "credit-spread",
+      "bond-price-yield"
+    ],
     "example": "「中東情勢の緊迫化でリスクオフが強まり、円と米国債が買われました」",
-    "source": "要確認：証券会社の用語集、財務省 本邦対外資産負債残高"
+    "source": "要確認：証券会社の用語集、財務省 本邦対外資産負債残高",
+    "cases": [
+      {
+        "date": "2011年3月",
+        "title": "東日本大震災後の円高とG7協調介入",
+        "detail": "震災で日本経済が打撃を受けたにもかかわらず、円は買われ、3月17日に一時1ドル76円25銭と1995年4月の79円75銭を抜いて戦後最高値を更新した。強制ロスカットによる円の買い戻しや投機的な買いが、急騰に拍車をかけたとされる。G7は翌18日、10年ぶりに協調して円売り介入を行った。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "国際通貨研究所 ニュースレター 2011年",
+        "url": "https://www.iima.or.jp/docs/newsletter/2011/NLNo_13_j.pdf"
+      },
+      {
+        "label": "J-CAST ニュース 2011年3月",
+        "url": "https://www.j-cast.com/2011/03/20090915.html"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "dollar-index",
@@ -67,9 +190,30 @@
     "summary": "主要6通貨に対するドルの総合的な強さを示す指数。",
     "detail": "ICEが算出する、ユーロ、円、英ポンド、カナダドル、スウェーデンクローナ、スイスフランの6通貨に対するドルの価値を示す指数。ユーロの比重が約58%と最も大きく、円は約14%。ドル円の動きが「ドル高」によるのか「円安」によるのかを見分けるのに使える。",
     "marketImpact": "ドル高は、ドル建てで取引される原油や金などの商品価格の重荷になりやすい。またドル建て債務を抱える新興国の負担を増やし、新興国資産の逆風になる。",
-    "related": ["usdjpy", "interest-rate-differential"],
+    "related": [
+      "usdjpy",
+      "interest-rate-differential"
+    ],
     "example": "「ドル指数は107台に上昇し、約2年ぶりの高水準を付けました」",
-    "source": "要確認：ICE U.S. Dollar Index の構成比"
+    "source": "要確認：ICE U.S. Dollar Index の構成比",
+    "cases": [
+      {
+        "date": "2022年9月",
+        "title": "ドル指数が20年ぶりの高値",
+        "detail": "FRBの急速な利上げと欧州のエネルギー危機を背景に、ドル指数は2022年9月下旬に114台と2002年以来の高値を付けた。1年間で約20%上昇し、新興国通貨や商品価格の重荷になった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "FXEmpire「The Dollar Index at Its Highest Level Since 2002」",
+        "url": "https://www.fxempire.com/forecasts/article/the-dollar-index-at-its-highest-level-since-2002-1103801"
+      },
+      {
+        "label": "ITIF 2022年10月3日",
+        "url": "https://itif.org/publications/2022/10/03/us-dollar-up-almost-20-percent-relative-to-other-major-currencies-over-last-year/"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "ppp",
@@ -79,8 +223,20 @@
     "summary": "為替レートは長期的に2国の物価水準の比に近づくという考え方。",
     "detail": "同じ商品は同じ価格になるはず（一物一価）という考えに基づき、為替レートは2国間の物価の比で決まるとする理論。物価上昇率の高い国の通貨は、長期的には購買力が落ちた分だけ下落すると考える。英エコノミスト誌の「ビッグマック指数」は分かりやすい例。",
     "marketImpact": "短期の相場を説明する力は弱いが、長期の割高・割安の目安として使われる。面接では「短期は金利差と需給、長期は購買力平価」という時間軸の整理が役に立つ。",
-    "related": ["usdjpy", "interest-rate-differential", "core-cpi"],
+    "related": [
+      "usdjpy",
+      "interest-rate-differential",
+      "core-cpi"
+    ],
     "example": "「購買力平価で見ると、現在の円相場は大幅に割安な水準にあります」",
-    "source": "要確認：国際通貨研究所 購買力平価、OECD PPPs"
+    "source": "要確認：国際通貨研究所 購買力平価、OECD PPPs",
+    "cases": [],
+    "sources": [
+      {
+        "label": "OECD Purchasing power parities",
+        "url": "https://www.oecd.org/en/data/indicators/purchasing-power-parities-ppp.html"
+      }
+    ],
+    "verification": "sourced"
   }
 ]

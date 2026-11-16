@@ -101,7 +101,7 @@ export default function QuizRunner({ questions, initialAnswers = {}, onAnswer, d
           )}
           <span className="bg-raised text-sub rounded-full px-2.5 py-0.5">{TYPE_LABEL[q.type]}</span>
         </div>
-        <p className="mb-6 text-xl leading-relaxed font-bold">{q.prompt}</p>
+        <p className={`mb-6 leading-relaxed font-bold whitespace-pre-line ${q.prompt.length > 120 ? 'text-base' : 'text-xl'}`}>{q.prompt}</p>
 
         <div className={q.type === 'truefalse' ? 'grid grid-cols-2 gap-3' : 'flex flex-col gap-2.5'}>
           {order.map((i, pos) => {

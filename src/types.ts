@@ -1,5 +1,17 @@
 export type Category = 'rates' | 'macro' | 'equity' | 'fx' | 'credit' | 'accounting' | 'career'
 
+export interface TermCase {
+  /** 時期（例：2024年8月5日、2022年6月〜11月） */
+  date: string
+  title: string
+  detail: string
+}
+
+export interface SourceLink {
+  label: string
+  url: string
+}
+
 export interface Term {
   id: string
   nameJa: string
@@ -11,8 +23,12 @@ export interface Term {
   related: string[]
   example: string
   source: string
-  /** 出典で裏を取ったら true にする。未設定は「裏取り前」として表示する */
-  verified?: boolean
+  /** 過去に実際にあった出来事 */
+  cases?: TermCase[]
+  /** 内容を確認した出典 */
+  sources?: SourceLink[]
+  /** sourced：出典で確認済み / reviewed：定義を見直し済み（個別の出典リンクなし）/ 未設定：確認前 */
+  verification?: 'sourced' | 'reviewed'
 }
 
 export type QuestionType = 'choice' | 'truefalse' | 'causal'

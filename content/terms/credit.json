@@ -7,9 +7,32 @@
     "summary": "社債と国債の利回り差。発行体の信用リスクへの上乗せ分。",
     "detail": "同じ年限の国債利回りに対して、社債の利回りがどれだけ高いかを示す。発行体が債務不履行（デフォルト）になるリスクや、流動性の低さへの対価。格付けが低いほどスプレッドは大きい。社債利回り ＝ 国債利回り ＋ クレジットスプレッド と分けて考える。",
     "marketImpact": "景気悪化や信用不安の局面では拡大（ワイド化）し、企業の資金調達コストを押し上げる。株式市場より先に異変を示すこともあり、リスクの体温計として見られる。景気が良く投資家が強気な局面では縮小（タイト化）する。",
-    "related": ["high-yield-bond", "cds", "credit-rating", "risk-off"],
+    "related": [
+      "high-yield-bond",
+      "cds",
+      "credit-rating",
+      "risk-off"
+    ],
     "example": "「景気後退懸念から、ハイイールド債のスプレッドが拡大しています」",
-    "source": "要確認：FRED（ICE BofA US High Yield Index Option-Adjusted Spread）"
+    "source": "要確認：FRED（ICE BofA US High Yield Index Option-Adjusted Spread）",
+    "cases": [
+      {
+        "date": "2020年3月",
+        "title": "コロナ・ショックでハイイールド債のスプレッドが急拡大",
+        "detail": "米ハイイールド債のスプレッド（ICE BofA指数）は、2月19日の約3.6%から3月23日には約10.9%（1,087bp）まで、わずか1か月余りで3倍に広がった。株式より先に信用市場の緊張が表れた例として知られる。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ETF Trends（New York Life Investments）",
+        "url": "https://www.etftrends.com/alternatives-channel/opportunities-in-high-yield-remain-as-spreads-approach-historical-averages/"
+      },
+      {
+        "label": "FRED BAMLH0A0HYM2（米ハイイールド債スプレッド）",
+        "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "credit-rating",
@@ -19,9 +42,31 @@
     "summary": "債券の元利払いの確実性を記号で示した評価。BBB以上が投資適格。",
     "detail": "格付け会社（S&P、ムーディーズ、フィッチなど）が、発行体や債券の信用力を記号で評価したもの。S&Pの表記でAAAが最上位。BBB−以上（ムーディーズではBaa3以上）が投資適格、BB+以下が投機的等級（ハイイールド）。国債にも格付けがある。",
     "marketImpact": "格下げは利回り上昇（価格下落）の要因。とくに投資適格から投機的等級への格下げ（フォーリン・エンジェル）は、投資適格債しか持てない投資家の売りを招く。2023年8月のフィッチ、2025年5月のムーディーズによる米国債の格下げは市場の話題になった。",
-    "related": ["credit-spread", "high-yield-bond", "cds"],
+    "related": [
+      "credit-spread",
+      "high-yield-bond",
+      "cds"
+    ],
     "example": "「ムーディーズは米国の格付けを最上位のAaaから1段階引き下げました」",
-    "source": "要確認：S&P Global Ratings 格付け定義、Moody's 2025年5月の発表"
+    "source": "要確認：S&P Global Ratings 格付け定義、Moody's 2025年5月の発表",
+    "cases": [
+      {
+        "date": "2011年・2023年・2025年",
+        "title": "米国債の格下げ",
+        "detail": "S&Pが2011年8月5日にAAAからAA+へ、フィッチが2023年8月1日にAA+へ、ムーディーズが2025年5月16日にAaaからAa1へ引き下げた。ムーディーズは1917年から最上位を維持しており、これで米国は大手3社すべてで最上位の格付けを失った。理由はいずれも財政赤字と政治の混乱だった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "NPR 2023年8月2日",
+        "url": "https://www.npr.org/2023/08/02/1178215888/fitch-downgrade-credit-rating-deficits-debt-economy"
+      },
+      {
+        "label": "Peter G. Peterson Foundation 2025年5月",
+        "url": "https://www.pgpf.org/article/moodys-downgraded-its-us-credit-rating-and-warns-that-recent-policy-decisions-will-worsen-fiscal-outlook"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "high-yield-bond",
@@ -31,9 +76,31 @@
     "summary": "格付けがBB以下の社債。利回りは高いがデフォルトリスクも高い。",
     "detail": "投機的等級（S&PでBB+以下）の社債。ジャンク債とも呼ばれる。信用リスクが高い分、国債に対する上乗せ利回り（スプレッド）が大きい。値動きは金利よりも景気や企業業績に左右されやすく、株式に近い性質を持つ。",
     "marketImpact": "リスクオンで買われ、リスクオフで売られる。ハイイールド債のスプレッドは信用市場の緊張度を測る代表的な指標で、急拡大は景気後退や信用不安のシグナルとされる。",
-    "related": ["credit-spread", "credit-rating", "risk-off"],
+    "related": [
+      "credit-spread",
+      "credit-rating",
+      "risk-off"
+    ],
     "example": "「投資家のリスク選好を背景に、ハイイールド債に資金が流入しています」",
-    "source": "要確認：証券会社の用語集、S&P Global Ratings 格付け定義"
+    "source": "要確認：証券会社の用語集、S&P Global Ratings 格付け定義",
+    "cases": [
+      {
+        "date": "2018年〜2019年",
+        "title": "WeWorkのハイイールド債",
+        "detail": "WeWorkは2018年4月に約7億ドルのハイイールド債を発行した。2019年9月30日に新規上場（IPO）を撤回すると、この社債は額面1ドルあたり84.5セントと過去最低まで下落した。企業の信用不安がそのまま価格に表れるハイイールド債の性質を示す例。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bloomberg 2019年9月30日",
+        "url": "https://www.bloomberg.com/news/articles/2019-09-30/wework-withdraws-ipo-prospectus-as-new-co-ceos-delay-offering"
+      },
+      {
+        "label": "Axios 2018年4月26日",
+        "url": "https://www.axios.com/2018/04/26/digging-into-weworks-commun-1524754857"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "cds",
@@ -43,9 +110,30 @@
     "summary": "企業や国のデフォルトに備える保険のようなデリバティブ。",
     "detail": "買い手が売り手に定期的に保証料（プレミアム）を払い、対象の企業や国がデフォルトなどの信用事由を起こした場合に損失の補償を受け取る契約。保証料率（CDSスプレッド）はベーシスポイント（1bp＝0.01%）で表示され、信用リスクの市場価格として見られる。対象の債券を持っていなくても取引できる。",
     "marketImpact": "CDSスプレッドの拡大は、市場がその発行体の信用リスクの高まりを織り込んでいることを示す。2008年の金融危機では、大量のCDSを売っていたAIGが経営危機に陥った。",
-    "related": ["credit-spread", "credit-rating"],
+    "related": [
+      "credit-spread",
+      "credit-rating"
+    ],
     "example": "「同行のCDSスプレッドが急拡大し、信用不安が意識されています」",
-    "source": "要確認：ISDA の解説、日本証券クリアリング機構 CDS清算"
+    "source": "要確認：ISDA の解説、日本証券クリアリング機構 CDS清算",
+    "cases": [
+      {
+        "date": "2008年9月",
+        "title": "AIGの救済",
+        "detail": "保険大手AIGは傘下のAIGファイナンシャル・プロダクツを通じて、想定元本4,410億ドル（2008年6月末）もの CDSを売っていた。格下げで取引相手から多額の担保を求められて資金繰りに行き詰まり、9月16日にNY連銀が最大850億ドルの融資を行い、政府が約8割の株式を取得した。CDSの売り手のリスクが表面化した代表例。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNN Money 2008年9月16日",
+        "url": "https://money.cnn.com/2008/09/16/news/companies/AIG/"
+      },
+      {
+        "label": "Yale Program on Financial Stability「AIG」",
+        "url": "https://newbagehot.yale.edu/node/196"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "vix",
@@ -55,9 +143,37 @@
     "summary": "S&P500の今後30日間の予想変動率を示す指数。恐怖指数と呼ばれる。",
     "detail": "シカゴ・オプション取引所（CBOE）が、S&P500を対象とするオプションの価格から算出する指数。市場が見込む今後30日間の変動率（インプライド・ボラティリティ）を年率で表す。平常時は10台、20を超えると警戒、30を超えると市場の不安が強い状態と言われる。",
     "marketImpact": "株価が急落する局面で急上昇する（株価と逆相関）。2008年の金融危機や2020年のコロナショックでは80を超えた。VIXの上昇は、リスク量を一定に保つ投資家の機械的な株売りを誘うことがある。",
-    "related": ["implied-volatility", "option", "sp500", "risk-off"],
+    "related": [
+      "implied-volatility",
+      "option",
+      "sp500",
+      "risk-off"
+    ],
     "example": "「恐怖指数と呼ばれるVIXは、節目の20を上回りました」",
-    "source": "要確認：CBOE VIX White Paper、FRED（VIXCLS）"
+    "source": "要確認：CBOE VIX White Paper、FRED（VIXCLS）",
+    "cases": [
+      {
+        "date": "2020年3月16日",
+        "title": "VIXが過去最高の82.69",
+        "detail": "コロナ・ショックで、VIXの終値は82.69と2008年11月の80.86を上回る過去最高を記録した。"
+      },
+      {
+        "date": "2024年8月5日",
+        "title": "1日の上昇幅が過去最大",
+        "detail": "円キャリートレードの巻き戻しと日本株の急落を受け、VIXは取引開始前に一時約66まで上昇し、1日の上昇幅として2008年や2020年を上回る過去最大となった。BISは、取引の薄い時間帯のオプション価格のゆがみが上昇を誇張した面もあると分析している。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNBC 2020年3月16日",
+        "url": "https://www.cnbc.com/2020/03/16/wall-streets-fear-gauge-hits-highest-level-ever.html"
+      },
+      {
+        "label": "BIS Bulletin No 95「Anatomy of the VIX spike in August 2024」",
+        "url": "https://www.bis.org/publ/bisbull95.htm"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "implied-volatility",
@@ -67,9 +183,27 @@
     "summary": "価格変動の大きさ。過去の実績がHV、市場の予想がIV。",
     "detail": "ボラティリティは価格変動の大きさで、通常は収益率の標準偏差を年率換算して表す。ヒストリカル・ボラティリティ（HV）は過去の値動きから計算した実績値。インプライド・ボラティリティ（IV）はオプションの市場価格から逆算した、市場が見込む将来の変動率。",
     "marketImpact": "IVが上がるとオプション価格（プレミアム）は、コールもプットも高くなる。決算や重要イベントの前はIVが上がり、通過すると下がりやすい。ボラティリティの上昇はキャリートレードの巻き戻しの引き金にもなる。",
-    "related": ["vix", "option", "carry-trade"],
+    "related": [
+      "vix",
+      "option",
+      "carry-trade"
+    ],
     "example": "「FOMCを前に、ドル円のインプライド・ボラティリティが上昇しています」",
-    "source": "要確認：日本取引所グループ（JPX）オプション取引の解説、Hull『フィナンシャルエンジニアリング』"
+    "source": "要確認：日本取引所グループ（JPX）オプション取引の解説、Hull『フィナンシャルエンジニアリング』",
+    "cases": [
+      {
+        "date": "2018年2月5日",
+        "title": "ボルマゲドン（VIXショック）",
+        "detail": "VIXが1日で115.6%上昇し、ボラティリティの低下に賭ける「インバースVIX」型の商品が壊滅した。クレジット・スイスのETN（XIV）は1日で9割超値下がりし、早期償還が決まった。長く続いた低ボラティリティを前提にした取引の危うさを示した。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ETF.com「Inverse VIX ETN Shuts Down」",
+        "url": "https://www.etf.com/sections/news/inverse-vix-etn-shuts-down"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "option",
@@ -79,9 +213,32 @@
     "summary": "決められた価格で買う権利がコール、売る権利がプット。",
     "detail": "原資産をあらかじめ決めた価格（権利行使価格）で、将来の決められた時点または期間に売買できる権利。買う権利がコール、売る権利がプット。買い手は対価としてプレミアムを払い、損失はプレミアムに限られる。売り手はプレミアムを受け取る代わりに、大きな損失を負う可能性がある。価格は原資産価格、行使価格、満期までの期間、ボラティリティ、金利などで決まる。",
     "marketImpact": "株価下落への備えとしてプットの買いが増えると、IVやVIXが上がる。オプションの売り手（マーケットメイカーなど）がリスクを打ち消すために行う原資産の売買（デルタヘッジ）が、相場の動きを増幅または抑制することがある。",
-    "related": ["implied-volatility", "vix", "futures", "market-making"],
+    "related": [
+      "implied-volatility",
+      "vix",
+      "futures",
+      "market-making"
+    ],
     "example": "「株価の下落に備え、プットオプションの買いが増えています」",
-    "source": "要確認：JPX オプション取引の解説、Hull『フィナンシャルエンジニアリング』"
+    "source": "要確認：JPX オプション取引の解説、Hull『フィナンシャルエンジニアリング』",
+    "cases": [
+      {
+        "date": "2021年1月",
+        "title": "ゲームストップ株の急騰",
+        "detail": "個人投資家の買いでゲームストップ株が急騰し、「コールの買いがマーケットメイカーのヘッジ買いを誘って株価を押し上げた（ガンマ・スクイーズ）」という説が広まった。しかしSECのスタッフ報告書（2021年10月）は、ガンマ・スクイーズの証拠は見つからなかったと結論づけた。通説と検証の結果が食い違う例として知っておきたい。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Shacknews（SECスタッフ報告書の概要）",
+        "url": "https://www.shacknews.com/article/127195/sec-issues-gamestop-gme-report-on-what-happened-in-january-2021"
+      },
+      {
+        "label": "CLS Blue Sky Blog「An Academic Critique of the SEC's GameStop Report」",
+        "url": "https://clsbluesky.law.columbia.edu/2022/02/22/an-academic-critique-of-the-secs-gamestop-report/"
+      }
+    ],
+    "verification": "sourced"
   },
   {
     "id": "futures",
@@ -91,8 +248,30 @@
     "summary": "将来の決められた日に、今決めた価格で売買することを約束する取引。",
     "detail": "取引所に上場され、条件が標準化された契約。証拠金を差し入れることで、元手より大きな金額を取引できる（レバレッジ）。売りから入ることもできる。株価指数先物（日経225先物、S&P500先物）、債券先物、商品先物（WTI原油）、金利先物（FF金利先物）などがある。オプションと違い、買い手にも売り手にも決済の義務がある。",
     "marketImpact": "現物市場が閉まっている時間帯も取引されるため、朝の日本株の寄り付きを占うのにシカゴ（CME）の日経平均先物が見られる。先物主導の売買が現物の指数を動かすことも多い。",
-    "related": ["option", "nikkei225", "ff-rate"],
+    "related": [
+      "option",
+      "nikkei225",
+      "ff-rate"
+    ],
     "example": "「シカゴの日経平均先物は、大阪取引所の終値を300円上回って取引を終えました」",
-    "source": "要確認：JPX 先物取引の解説、CME Group Education"
+    "source": "要確認：JPX 先物取引の解説、CME Group Education",
+    "cases": [
+      {
+        "date": "2020年4月20日",
+        "title": "原油先物が史上初のマイナス価格",
+        "detail": "コロナ・ショックで原油の需要が急減し、受け渡し地のクッシング（米オクラホマ州）の貯蔵施設が満杯に近づいた。現物を引き取れない保有者が満期直前の5月限を投げ売りし、WTI先物は1バレル＝−37.63ドルで取引を終えた。お金を払ってでも先物を手放す、受け渡し義務のある先物ならではの出来事だった。"
+      }
+    ],
+    "sources": [
+      {
+        "label": "米議会調査局（CRS）Insight IN11354",
+        "url": "https://www.everycrsreport.com/files/20200422_IN11354_22b1bbff637649ec03f45eb517f4b78a0a42c059.html"
+      },
+      {
+        "label": "Investing.com「US crude turns negative for first time in history」",
+        "url": "https://www.investing.com/news/commodities-news/us-crude-turns-negative-first-time-in-history-2145466"
+      }
+    ],
+    "verification": "sourced"
   }
 ]
